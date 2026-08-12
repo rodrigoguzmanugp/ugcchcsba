@@ -1,5 +1,5 @@
-// ===================================================================
-// AUTH.JS - Autenticación, login, registro y sesiones
+﻿// ===================================================================
+// AUTH.JS - AutenticaciÃ³n, login, registro y sesiones
 // ===================================================================
 
 function usuarioAEmail(valor) {
@@ -23,7 +23,7 @@ function mostrarTabLogin(tab) {
 
 function verificarConexionSupabase(errorEl) {
     if (!supabaseClient) {
-        errorEl.innerText = 'Supabase no está configurado: define SUPABASE_URL y SUPABASE_ANON_KEY en config.js';
+        errorEl.innerText = 'Supabase no estÃ¡ configurado: define SUPABASE_URL y SUPABASE_ANON_KEY en config.js';
         errorEl.classList.remove('hidden');
         return false;
     }
@@ -60,7 +60,7 @@ async function iniciarSesion(event) {
         console.error('Supabase login error:', error);
         const msg = error.message.includes('Email not confirmed')
             ? 'Confirma tu correo (revisa tu bandeja/spam) antes de ingresar.'
-            : `Usuario o contraseña incorrectos. (${error.message})`;
+            : `Usuario o contraseÃ±a incorrectos. (${error.message})`;
         errorEl.innerText = msg;
         errorEl.classList.remove('hidden');
         if (boton) { boton.disabled = false; boton.innerText = 'Ingresar al Panel'; }
@@ -82,7 +82,7 @@ async function iniciarSesion(event) {
     }
 
     if (perfil.rol !== 'admin' && !perfil.aprobado) {
-        errorEl.innerText = `Tu cuenta espera aprobación del administrador (${ADMIN_EMAIL}).`;
+        errorEl.innerText = `Tu cuenta espera aprobaciÃ³n del administrador (${ADMIN_EMAIL}).`;
         errorEl.classList.remove('hidden');
         await supabaseClient.auth.signOut();
         if (boton) { boton.disabled = false; boton.innerText = 'Ingresar al Panel'; }
@@ -115,7 +115,7 @@ async function registrarOperador(event) {
     const boton = event.submitter;
 
     if (!/^[^\s@]+@gmail\.com$/i.test(email)) {
-        errorEl.innerText = 'Debes registrarte con un correo @gmail.com válido.';
+        errorEl.innerText = 'Debes registrarte con un correo @gmail.com vÃ¡lido.';
         errorEl.classList.remove('hidden');
         return;
     }
@@ -130,14 +130,14 @@ async function registrarOperador(event) {
 
     if (error) {
         errorEl.innerText = error.message.includes('already registered')
-            ? 'Ese correo ya está registrado.'
+            ? 'Ese correo ya estÃ¡ registrado.'
             : `Error: ${error.message}`;
         errorEl.classList.remove('hidden');
         if (boton) { boton.disabled = false; boton.innerText = 'Registrar Operador'; }
         return;
     }
 
-    okEl.innerText = `✓ Registro enviado para "${usuario}" (${email}). Confirma tu correo y espera aprobación.`;
+    okEl.innerText = `âœ“ Registro enviado para "${usuario}" (${email}). Confirma tu correo y espera aprobaciÃ³n.`;
     okEl.classList.remove('hidden');
     document.getElementById('panel-registro').reset();
     if (boton) { boton.disabled = false; boton.innerText = 'Registrar Operador'; }
@@ -213,17 +213,17 @@ async function cargarPendientes() {
         return;
     }
     if (!data || data.length === 0) {
-        cont.innerHTML = '<p class="text-slate-400 text-center py-6">No hay usuarios pendientes. ✅</p>';
+        cont.innerHTML = '<p class="text-slate-400 text-center py-6">No hay usuarios pendientes. âœ…</p>';
         return;
     }
 
     cont.innerHTML = data.map(u => `
         <div class="border border-slate-200 rounded-xl p-4 flex items-center justify-between gap-3">
             <div>
-                <p class="font-semibold text-slate-900">${u.usuario} <span class="text-xs font-normal text-slate-400">· ${u.email || ''}</span></p>
+                <p class="font-semibold text-slate-900">${u.usuario} <span class="text-xs font-normal text-slate-400">Â· ${u.email || ''}</span></p>
                 <p class="text-xs text-slate-500 mt-0.5">
                     Permiso: <span class="font-medium">${u.permiso === 'escritura' ? 'Escritura' : 'Solo Lectura'}</span>
-                    · Turno ${u.turno} · Área ${u.area}
+                    Â· Turno ${u.turno} Â· Ãrea ${u.area}
                 </p>
             </div>
             <div class="flex items-center space-x-2 shrink-0">
@@ -246,7 +246,7 @@ async function aprobarUsuario(id) {
 }
 
 async function rechazarUsuario(id, usuario) {
-    if (!confirm(`¿Rechazar a "${usuario}"?`)) return;
+    if (!confirm(`Â¿Rechazar a "${usuario}"?`)) return;
     const { error } = await supabaseClient.from('perfiles').delete().eq('id', id);
     if (error) { alert(`Error: ${error.message}`); return; }
     await cargarPendientes();
@@ -260,9 +260,9 @@ function aplicarSesionEnInterfaz(sesion) {
     if (nombreEl) nombreEl.innerText = sesion.usuario;
     if (rolEl) {
         const etiquetaRol = sesion.rol === 'admin' ? 'Administrador'
-            : sesion.rol === 'invitado' ? 'Invitado · Solo Lectura'
-            : (sesion.permiso === 'escritura' ? 'Operador · Escritura' : 'Operador · Solo Lectura');
-        rolEl.innerText = `${etiquetaRol} · Turno ${sesion.turno} · ${sesion.area}`;
+            : sesion.rol === 'invitado' ? 'Invitado Â· Solo Lectura'
+            : (sesion.permiso === 'escritura' ? 'Operador Â· Escritura' : 'Operador Â· Solo Lectura');
+        rolEl.innerText = `${etiquetaRol} Â· Turno ${sesion.turno} Â· ${sesion.area}`;
     }
     if (emailEl) {
         const esCorreoInterno = !sesion.email || sesion.email.endsWith(LEGACY_EMAIL_DOMAIN);

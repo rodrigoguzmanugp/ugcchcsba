@@ -1,137 +1,137 @@
-╔═══════════════════════════════════════════════════════════════════════════╗
-║                                                                           ║
-║              ⭐ BIENVENIDO AL SISTEMA MODULARIZADO ⭐                    ║
-║         Sistema de Gestión de Camas Hospitalarias v2.0                   ║
-║                                                                           ║
-╚═══════════════════════════════════════════════════════════════════════════╝
+﻿â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
+â•‘                                                                           â•‘
+â•‘              â­ BIENVENIDO AL SISTEMA MODULARIZADO â­                    â•‘
+â•‘         Sistema de GestiÃ³n de Camas Hospitalarias v2.0                   â•‘
+â•‘                                                                           â•‘
+â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-📌 LO PRIMERO QUE DEBES SABER:
+ðŸ“Œ LO PRIMERO QUE DEBES SABER:
 
    1. Abre "index.html" para usar el sistema (igual que antes)
-   2. El código ahora está en 8 módulos pequeños en la carpeta "js/"
-   3. La documentación está en "docs/"
+   2. El cÃ³digo ahora estÃ¡ en 8 mÃ³dulos pequeÃ±os en la carpeta "js/"
+   3. La documentaciÃ³n estÃ¡ en "docs/"
 
-═════════════════════════════════════════════════════════════════════════════
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-🚀 INICIO RÁPIDO (3 pasos):
+ðŸš€ INICIO RÃPIDO (3 pasos):
 
    Paso 1: Abre index.html
-           → Funciona igual que antes, carga automáticamente todos los módulos
+           â†’ Funciona igual que antes, carga automÃ¡ticamente todos los mÃ³dulos
 
    Paso 2: Cuando necesites cambiar algo
-           → Busca el módulo en "docs/FUNCTION_INDEX.md"
-           → O navega por carpeta "js/"
+           â†’ Busca el mÃ³dulo en "docs/FUNCTION_INDEX.md"
+           â†’ O navega por carpeta "js/"
 
-   Paso 3: Realiza tu cambio y recarga la página
-           → Listo! Los cambios se aplican automáticamente
+   Paso 3: Realiza tu cambio y recarga la pÃ¡gina
+           â†’ Listo! Los cambios se aplican automÃ¡ticamente
 
-═════════════════════════════════════════════════════════════════════════════
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-📚 ESTRUCTURA ACTUAL:
+ðŸ“š ESTRUCTURA ACTUAL:
 
    sistemaugcc/
-   │
-   ├─ 📄 index.html ◄─── ABRE ESTE ARCHIVO
-   │
-   ├─ 📁 js/ (Módulos JavaScript - 8 archivos)
-   │  ├─ config.js          (56 líneas)   - Configuración
-   │  ├─ auth.js            (307 líneas)  - Autenticación
-   │  ├─ utils.js           (47 líneas)   - Funciones auxiliares
-   │  ├─ google-sheets.js   (117 líneas)  - Google Sheets
-   │  ├─ dashboard.js       (48 líneas)   - Dashboard
-   │  ├─ modules.js         (137 líneas)  - Módulos personalizados
-   │  ├─ ui.js              (144 líneas)  - UI e impresión
-   │  └─ main.js            (52 líneas)   - Inicialización
-   │
-   ├─ 📁 docs/ (Documentación - LEE ESTO)
-   │  ├─ MODULARIZATION_GUIDE.md ◄─── EMPIEZA AQUÍ
-   │  ├─ ARCHITECTURE.md
-   │  └─ FUNCTION_INDEX.md
-   │
-   └─ 🗂️ Backup original (referencia)
+   â”‚
+   â”œâ”€ ðŸ“„ index.html â—„â”€â”€â”€ ABRE ESTE ARCHIVO
+   â”‚
+   â”œâ”€ ðŸ“ js/ (MÃ³dulos JavaScript - 8 archivos)
+   â”‚  â”œâ”€ config.js          (56 lÃ­neas)   - ConfiguraciÃ³n
+   â”‚  â”œâ”€ auth.js            (307 lÃ­neas)  - AutenticaciÃ³n
+   â”‚  â”œâ”€ utils.js           (47 lÃ­neas)   - Funciones auxiliares
+   â”‚  â”œâ”€ google-sheets.js   (117 lÃ­neas)  - Google Sheets
+   â”‚  â”œâ”€ dashboard.js       (48 lÃ­neas)   - Dashboard
+   â”‚  â”œâ”€ modules.js         (137 lÃ­neas)  - MÃ³dulos personalizados
+   â”‚  â”œâ”€ ui.js              (144 lÃ­neas)  - UI e impresiÃ³n
+   â”‚  â””â”€ main.js            (52 lÃ­neas)   - InicializaciÃ³n
+   â”‚
+   â”œâ”€ ðŸ“ docs/ (DocumentaciÃ³n - LEE ESTO)
+   â”‚  â”œâ”€ MODULARIZATION_GUIDE.md â—„â”€â”€â”€ EMPIEZA AQUÃ
+   â”‚  â”œâ”€ ARCHITECTURE.md
+   â”‚  â””â”€ FUNCTION_INDEX.md
+   â”‚
+   â””â”€ ðŸ—‚ï¸ Backup original (referencia)
 
-═════════════════════════════════════════════════════════════════════════════
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-✨ ¿QUÉ CAMBIÓ Y QUÉ NO?
+âœ¨ Â¿QUÃ‰ CAMBIÃ“ Y QUÃ‰ NO?
 
-   ✅ CAMBIÓ (mejor):
-      • El código ahora está dividido en módulos
-      • Cada archivo tiene 47-307 líneas (vs 3,500 antes)
-      • Es más fácil encontrar funciones
-      • Los cambios son más seguros y aislados
-      • Claude Code usa 85% menos tokens por cambio
+   âœ… CAMBIÃ“ (mejor):
+      â€¢ El cÃ³digo ahora estÃ¡ dividido en mÃ³dulos
+      â€¢ Cada archivo tiene 47-307 lÃ­neas (vs 3,500 antes)
+      â€¢ Es mÃ¡s fÃ¡cil encontrar funciones
+      â€¢ Los cambios son mÃ¡s seguros y aislados
+      â€¢ Claude Code usa 85% menos tokens por cambio
 
-   ❌ NO CAMBIÓ (igual funcionalidad):
-      • El sistema funciona exactamente igual
-      • Mismas características (login, dashboard, Google Sheets, etc.)
-      • Misma interfaz y usuario
-      • Todos los datos se guardan igual en Supabase
+   âŒ NO CAMBIÃ“ (igual funcionalidad):
+      â€¢ El sistema funciona exactamente igual
+      â€¢ Mismas caracterÃ­sticas (login, dashboard, Google Sheets, etc.)
+      â€¢ Misma interfaz y usuario
+      â€¢ Todos los datos se guardan igual en Supabase
 
-═════════════════════════════════════════════════════════════════════════════
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-🎯 CÓMO TRABAJAR CON CLAUDE CODE AHORA:
+ðŸŽ¯ CÃ“MO TRABAJAR CON CLAUDE CODE AHORA:
 
    ANTES (ineficiente):
-      "Revisa el código completo y agrégame la función X"
-      → Claude cargaba 3,500 líneas, gastaba muchos tokens
+      "Revisa el cÃ³digo completo y agrÃ©game la funciÃ³n X"
+      â†’ Claude cargaba 3,500 lÃ­neas, gastaba muchos tokens
 
    AHORA (eficiente):
-      "Abre docs/FUNCTION_INDEX.md y busca dónde está X"
-      "Revisa js/auth.js y agrégame la función Y en login"
-      → Claude carga solo el módulo (300-400 líneas), usa pocos tokens
+      "Abre docs/FUNCTION_INDEX.md y busca dÃ³nde estÃ¡ X"
+      "Revisa js/auth.js y agrÃ©game la funciÃ³n Y en login"
+      â†’ Claude carga solo el mÃ³dulo (300-400 lÃ­neas), usa pocos tokens
 
-═════════════════════════════════════════════════════════════════════════════
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-📖 PRÓXIMAS LECTURAS (en orden):
+ðŸ“– PRÃ“XIMAS LECTURAS (en orden):
 
-   1️⃣  docs/MODULARIZATION_GUIDE.md
-       Cómo funciona la estructura, ejemplos, FAQs
+   1ï¸âƒ£  docs/MODULARIZATION_GUIDE.md
+       CÃ³mo funciona la estructura, ejemplos, FAQs
 
-   2️⃣  docs/ARCHITECTURE.md
-       Detalles técnicos, dependencias entre módulos
+   2ï¸âƒ£  docs/ARCHITECTURE.md
+       Detalles tÃ©cnicos, dependencias entre mÃ³dulos
 
-   3️⃣  docs/FUNCTION_INDEX.md
+   3ï¸âƒ£  docs/FUNCTION_INDEX.md
        Referencia completa de todas las funciones
 
-═════════════════════════════════════════════════════════════════════════════
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-💡 EJEMPLOS DE CAMBIOS COMUNES:
+ðŸ’¡ EJEMPLOS DE CAMBIOS COMUNES:
 
    "Quiero cambiar el correo del admin"
-   → Abre: js/config.js, línea 18
+   â†’ Abre: js/config.js, lÃ­nea 18
 
    "Quiero modificar el formulario de login"
-   → Abre: index.html (estructura), js/auth.js (lógica)
+   â†’ Abre: index.html (estructura), js/auth.js (lÃ³gica)
 
-   "Quiero agregar un botón nuevo"
-   → Abre: index.html (botón HTML), js/ui.js (función del botón)
+   "Quiero agregar un botÃ³n nuevo"
+   â†’ Abre: index.html (botÃ³n HTML), js/ui.js (funciÃ³n del botÃ³n)
 
    "Quiero conectar una nueva Google Sheet"
-   → Abre: js/google-sheets.js (lectura), js/config.js (URL)
+   â†’ Abre: js/google-sheets.js (lectura), js/config.js (URL)
 
-═════════════════════════════════════════════════════════════════════════════
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-🆘 ¿ALGO NO FUNCIONA?
+ðŸ†˜ Â¿ALGO NO FUNCIONA?
 
-   1. Verifica que index.html esté en la carpeta correcta
+   1. Verifica que index.html estÃ© en la carpeta correcta
    2. Revisa que la carpeta "js/" tenga todos los 8 archivos
    3. Abre la consola del navegador (F12) para ver errores
-   4. Consulta "docs/MODULARIZATION_GUIDE.md" sección "Errores Comunes"
+   4. Consulta "docs/MODULARIZATION_GUIDE.md" secciÃ³n "Errores Comunes"
 
-═════════════════════════════════════════════════════════════════════════════
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-📞 RESUMEN EN UNA FRASE:
+ðŸ“ž RESUMEN EN UNA FRASE:
 
-   Tu código sigue funcionando igual, pero ahora está dividido en módulos
-   pequeños para que sea más fácil trabajar sin cargar todo cada vez.
+   Tu cÃ³digo sigue funcionando igual, pero ahora estÃ¡ dividido en mÃ³dulos
+   pequeÃ±os para que sea mÃ¡s fÃ¡cil trabajar sin cargar todo cada vez.
 
-═════════════════════════════════════════════════════════════════════════════
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
-✅ LISTO PARA COMENZAR
+âœ… LISTO PARA COMENZAR
 
    Abre index.html y usa el sistema como siempre.
    Lee docs/MODULARIZATION_GUIDE.md si tienes dudas.
 
-   ¡Que disfrutes de la nueva estructura! 🚀
+   Â¡Que disfrutes de la nueva estructura! ðŸš€
 
-═════════════════════════════════════════════════════════════════════════════
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•

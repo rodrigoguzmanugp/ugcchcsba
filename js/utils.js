@@ -1,4 +1,4 @@
-// ===================================================================
+﻿// ===================================================================
 // UTILS.JS - Funciones auxiliares generales
 // ===================================================================
 
@@ -14,7 +14,7 @@ function updateClock() {
 function slugify(texto) {
     return texto
         .toLowerCase()
-        .replace(/[áéíóú]/g, v => ({ á: 'a', é: 'e', í: 'i', ó: 'o', ú: 'u' })[v])
+        .replace(/[Ã¡Ã©Ã­Ã³Ãº]/g, v => ({ Ã¡: 'a', Ã©: 'e', Ã­: 'i', Ã³: 'o', Ãº: 'u' })[v])
         .replace(/\s+/g, '-')
         .replace(/[^a-z0-9-]/g, '')
         .replace(/-+/g, '-')
@@ -31,7 +31,7 @@ function parseCelda(celda) {
 function pareceEncabezado(fila) {
     if (!fila || fila.length === 0) return false;
     const primerValor = String(fila[0]).toLowerCase();
-    return ['nombre', 'usuario', 'codigo', 'id', 'descripción', 'title', 'encabezado'].some(h => primerValor.includes(h));
+    return ['nombre', 'usuario', 'codigo', 'id', 'descripciÃ³n', 'title', 'encabezado'].some(h => primerValor.includes(h));
 }
 
 function getBanColor(color) {

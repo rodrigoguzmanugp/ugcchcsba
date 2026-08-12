@@ -1,5 +1,5 @@
-// ===================================================================
-// MODULES.JS - Módulos custom y gestión de Google Sheets
+﻿// ===================================================================
+// MODULES.JS - MÃ³dulos custom y gestiÃ³n de Google Sheets
 // ===================================================================
 
 function getSheetUrl(modId) {
@@ -32,7 +32,7 @@ async function configureSheetUrl(modId, modName) {
 }
 
 function navigateToModule(modId) {
-    if (bloquearSiInvitado('No puedes ver módulos personalizados en modo Invitado.')) return;
+    if (bloquearSiInvitado('No puedes ver mÃ³dulos personalizados en modo Invitado.')) return;
     const tab = document.getElementById(`tab-${modId}`);
     if (tab) {
         tab.click();
@@ -40,7 +40,7 @@ function navigateToModule(modId) {
 }
 
 function switchModule(modId) {
-    // Cambiar entre módulos en la navegación
+    // Cambiar entre mÃ³dulos en la navegaciÃ³n
     const tabs = document.querySelectorAll('[data-module-tab]');
     tabs.forEach(t => {
         t.classList.toggle('hidden', t.id !== `tab-${modId}`);
@@ -77,7 +77,7 @@ async function crearModuloCustom(event) {
     const urlSheet = document.getElementById('input-url-sheet').value;
 
     if (!supabaseClient) {
-        alert('Supabase no está disponible');
+        alert('Supabase no estÃ¡ disponible');
         return;
     }
 
@@ -90,13 +90,13 @@ async function crearModuloCustom(event) {
         return;
     }
 
-    alert('✓ Módulo creado');
+    alert('âœ“ MÃ³dulo creado');
     cerrarModalCrearModulo();
     location.reload();
 }
 
 async function eliminarModuloCustom(id) {
-    if (!confirm('¿Eliminar este módulo?')) return;
+    if (!confirm('Â¿Eliminar este mÃ³dulo?')) return;
     if (!supabaseClient) return;
 
     const { error } = await supabaseClient
@@ -127,11 +127,11 @@ function crearSeccionModuloCustom(m) {
 }
 
 async function cargarModuloCustom(id) {
-    // Cargar datos de un módulo custom específico
-    console.log(`Cargando módulo custom: ${id}`);
+    // Cargar datos de un mÃ³dulo custom especÃ­fico
+    console.log(`Cargando mÃ³dulo custom: ${id}`);
 }
 
 function renderModulosCustom(reconstruirNav = false) {
-    // Renderizar todos los módulos custom
-    console.log('Renderizando módulos custom...');
+    // Renderizar todos los mÃ³dulos custom
+    console.log('Renderizando mÃ³dulos custom...');
 }

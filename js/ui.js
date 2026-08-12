@@ -1,12 +1,12 @@
-// ===================================================================
-// UI.JS - Funciones de interfaz, impresión y modales
+﻿// ===================================================================
+// UI.JS - Funciones de interfaz, impresiÃ³n y modales
 // ===================================================================
 
 function imprimirPlanillaInhabil() {
     if (bloquearSiInvitado('No puedes imprimir en modo Invitado.')) return;
     const element = document.getElementById('planilla-inhabil');
     if (!element) {
-        alert('No se encontró la planilla para imprimir.');
+        alert('No se encontrÃ³ la planilla para imprimir.');
         return;
     }
     const opt = {
@@ -23,7 +23,7 @@ function imprimirSolicitudPabellon() {
     if (bloquearSiInvitado('No puedes imprimir en modo Invitado.')) return;
     const element = document.getElementById('solicitud-pabellon');
     if (!element) {
-        alert('No se encontró la solicitud para imprimir.');
+        alert('No se encontrÃ³ la solicitud para imprimir.');
         return;
     }
     const opt = {
@@ -112,7 +112,7 @@ async function cargarResidentesTurno() {
     console.log('Cargando residentes del turno...');
 }
 
-// Configuración de celdas desde Supabase
+// ConfiguraciÃ³n de celdas desde Supabase
 async function cargarConfigCeldas() {
     if (!supabaseClient) return {};
     const { data } = await supabaseClient.from('config_celdas').select('*');

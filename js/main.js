@@ -1,9 +1,9 @@
-// ===================================================================
-// MAIN.JS - Inicialización de la aplicación
+﻿// ===================================================================
+// MAIN.JS - InicializaciÃ³n de la aplicaciÃ³n
 // ===================================================================
 
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log('🚀 Iniciando Sistema de Gestión de Camas Hospitalarias...');
+    console.log('ðŸš€ Iniciando Sistema de GestiÃ³n de Camas Hospitalarias...');
 
     // Verificar Supabase
     if (!supabaseClient) {
@@ -13,15 +13,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Inicializar reloj
     updateClock();
 
-    // Intentar restaurar sesión
+    // Intentar restaurar sesiÃ³n
     await restaurarSesion();
 
-    // Cargar módulos personalizados si existen
+    // Cargar mÃ³dulos personalizados si existen
     if (!esInvitado()) {
         await renderModulosCustom(true);
     }
 
-    console.log('✓ Aplicación lista');
+    console.log('âœ“ AplicaciÃ³n lista');
 });
 
 async function restaurarSesion() {
@@ -47,6 +47,6 @@ async function restaurarSesion() {
             return;
         }
     }
-    // No hay sesión: mostrar login
+    // No hay sesiÃ³n: mostrar login
     document.getElementById('login-screen').classList.remove('hidden');
 }

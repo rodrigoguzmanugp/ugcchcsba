@@ -1,11 +1,11 @@
-// ===================================================================
-// GOOGLE-SHEETS.JS - Integración con Google Sheets API
+﻿// ===================================================================
+// GOOGLE-SHEETS.JS - IntegraciÃ³n con Google Sheets API
 // ===================================================================
 
 function guardarTokenGoogle(token, expiresIn) {
-    const expiración = Date.now() + (expiresIn * 1000);
+    const expiraciÃ³n = Date.now() + (expiresIn * 1000);
     sessionStorage.setItem('google_token', token);
-    sessionStorage.setItem('google_token_expires', expiración);
+    sessionStorage.setItem('google_token_expires', expiraciÃ³n);
 }
 
 function obtenerTokenGoogleVigente() {
@@ -25,7 +25,7 @@ function actualizarBotonGoogle() {
     if (!boton) return;
     const token = obtenerTokenGoogleVigente();
     if (token) {
-        boton.innerHTML = '<i class="fa-brands fa-google text-green-600 mr-2"></i> Google Conectado ✓';
+        boton.innerHTML = '<i class="fa-brands fa-google text-green-600 mr-2"></i> Google Conectado âœ“';
         boton.classList.add('opacity-50', 'cursor-not-allowed');
         boton.disabled = true;
     } else {
@@ -37,7 +37,7 @@ function actualizarBotonGoogle() {
 
 async function conectarGoogle() {
     if (!supabaseClient) {
-        alert('Supabase no está configurado.');
+        alert('Supabase no estÃ¡ configurado.');
         return;
     }
     const { error } = await supabaseClient.auth.signInWithOAuth({

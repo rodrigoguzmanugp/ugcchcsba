@@ -1,11 +1,11 @@
-// ===================================================================
-// DASHBOARD.JS - Lógica del dashboard, KPIs y tarjetas
+﻿// ===================================================================
+// DASHBOARD.JS - LÃ³gica del dashboard, KPIs y tarjetas
 // ===================================================================
 
 async function cargarKpisCamasCriticas() {
-    // Carga datos de KPI para camas críticas desde Sheets
-    // Implementar lectura de celdas específicas desde Google Sheets
-    console.log('Cargando KPIs de camas críticas...');
+    // Carga datos de KPI para camas crÃ­ticas desde Sheets
+    // Implementar lectura de celdas especÃ­ficas desde Google Sheets
+    console.log('Cargando KPIs de camas crÃ­ticas...');
 }
 
 function pintarKpiCard(prefix, data) {
@@ -25,7 +25,7 @@ function pintarKpiCard(prefix, data) {
 }
 
 function construirCeldasCamasCriticas() {
-    // Construir referencia a celdas en Google Sheets para datos de camas críticas
+    // Construir referencia a celdas en Google Sheets para datos de camas crÃ­ticas
     return {
         adultoUciPorcentaje: 'B5',
         adultoUciDisponibles: 'C5',
