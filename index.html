@@ -1521,37 +1521,7 @@
         // ANTES DE USAR — reemplaza estas 2 constantes con los datos de
         // TU proyecto (Supabase Dashboard > Project Settings > API):
         // ---------------------------------------------------------------
-        const SUPABASE_URL = 'https://pebrjdqvvexoefvytoex.supabase.co';
-        const SUPABASE_ANON_KEY = 'sb_publishable_HVzRa4gsMNcv1jbpNrof7w_pTU6t7PS';
-
-        // Cliente de Supabase (usa el SDK cargado por CDN en el <head>)
-        const supabaseClient = (SUPABASE_URL.includes('TU-PROYECTO'))
-            ? null
-            : supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-        // Captura el token de acceso de Google apenas Supabase lo entregue
-        // (justo después de "Conectar Google", o en el login inicial si ya
-        // estaba vinculado). Google solo lo entrega en ese momento puntual,
-        // por eso se guarda en sessionStorage para reutilizarlo ~1 hora.
-        if (supabaseClient) {
-            supabaseClient.auth.onAuthStateChange((event, session) => {
-                if (session?.provider_token) {
-                    guardarTokenGoogle(session.provider_token, session.expires_in);
-                }
-                // Actualiza el correo mostrado en el badge apenas Google quede
-                // conectado, sin esperar a recargar la página.
-                if (session?.user && sesionActiva) {
-                    const correo = extraerCorreoParaMostrar(session.user);
-                    if (correo && correo !== sesionActiva.email) {
-                        sesionActiva.email = correo;
-                        aplicarSesionEnInterfaz(sesionActiva);
-                    }
-                }
-            });
-        }
-
-        // Correo del administrador que debe aprobar cuentas nuevas
-        const ADMIN_EMAIL = 'rodrigoguzman.ugp@gmail.com';
+        // *** Configuración movida a js/config.js ***
 
         // Supabase Auth requiere un "email". Las cuentas legacy (ej. admin)
         // usan un correo interno @gestorcamas.local; las cuentas nuevas
