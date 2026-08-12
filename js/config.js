@@ -10,6 +10,7 @@ const NOVEDADES_SPREADSHEET_ID    = '1hDtmpPngKJhQ_8Tw6E53vTjiiB-4KUGBWdosvfelis
 const INFORME_TURNO_SPREADSHEET_ID = '1hDtmpPngKJhQ_8Tw6E53vTjiiB-4KUGBWdosvfelisM';
 const CDT_SPREADSHEET_ID          = '1B8AK-RoH2zuVpZkvPvd6MlofX361YFkC8bNhEDXEXDg';
 const HEC_HUAP_SPREADSHEET_ID     = '1t7dF3yBXQ8t0upriCQ5vnmrKouWgu2bza47QQmOGR2w';
+const MACRORRED_SPREADSHEET_ID    = '1tdSnpGEWX4I3_yJ353NFFtRWuCTwVGEwGCAgDVFVUrA';
 
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
     realtime: { enabled: false }
@@ -26,7 +27,7 @@ const SHEET_URLS = {
     'informe':   'https://docs.google.com/spreadsheets/d/1hDtmpPngKJhQ_8Tw6E53vTjiiB-4KUGBWdosvfelisM/edit',
     'cdt':       'https://docs.google.com/spreadsheets/d/1B8AK-RoH2zuVpZkvPvd6MlofX361YFkC8bNhEDXEXDg/edit',
     'hec-huap':  'https://docs.google.com/spreadsheets/d/1t7dF3yBXQ8t0upriCQ5vnmrKouWgu2bza47QQmOGR2w/edit',
-    'macrorred': '',
+    'macrorred': 'https://docs.google.com/spreadsheets/d/1tdSnpGEWX4I3_yJ353NFFtRWuCTwVGEwGCAgDVFVUrA/edit',
     'ref-adulto':'',
     'ref-pede':  '',
 };
@@ -87,6 +88,18 @@ const CONFIG_CELDAS_DEFAULT = {
     // % Ocupación
     'pct_ocupacion_adulto': { valor: 'K54', grupo: '% Ocupación Total', etiqueta: 'Celda % Ocupación Total Adultos' },
     'pct_ocupacion_pedi':   { valor: 'N70', grupo: '% Ocupación Total', etiqueta: 'Celda % Ocupación Total Pediatría' },
+    // HEC y HUAP
+    'hec_huap_hec_hoja':   { valor: 'HEC - JULIO 2026',  grupo: 'HEC y HUAP', etiqueta: 'Nombre pestaña HEC (actualizar cada mes)' },
+    'hec_huap_huap_hoja':  { valor: 'HUAP - JULIO 2026', grupo: 'HEC y HUAP', etiqueta: 'Nombre pestaña HUAP (actualizar cada mes)' },
+    'hec_huap_rango':      { valor: 'A1:G148',           grupo: 'HEC y HUAP', etiqueta: 'Rango de datos (filas)' },
+    // CDT
+    'cdt_hoja':   { valor: 'ORDENES', grupo: 'CDT', etiqueta: 'Nombre pestaña órdenes' },
+    'cdt_rango':  { valor: 'A1:Z200', grupo: 'CDT', etiqueta: 'Rango de datos' },
+    // Macrorred
+    'macrorred_hoja':         { valor: 'OTROS PÚBLICOS Y MACRORED 08/26', grupo: 'Macrorred', etiqueta: 'Pestaña principal (actualizar cada mes)' },
+    'macrorred_hoja_ugcc':    { valor: 'HCSBA A UGCC/SALUD MENTAL 08/26', grupo: 'Macrorred', etiqueta: 'Pestaña UGCC/Salud Mental' },
+    'macrorred_hoja_urgencia':{ valor: 'LEY DE URGENCIAS Y MLE 07/26',    grupo: 'Macrorred', etiqueta: 'Pestaña Ley Urgencias y MLE' },
+    'macrorred_rango':        { valor: 'A1:S50',                          grupo: 'Macrorred', etiqueta: 'Rango de datos' },
 };
 
 // Auto-genera entradas por bloque de matriz de informe

@@ -132,25 +132,104 @@ async function cargarSolicitudesSalida() {
     }
 }
 
-async function cargarSolicitudesCDT() {
-    console.log('Cargando solicitudes CDT...');
-    const el = document.getElementById('tbody-cdt');
-    if (el) el.innerHTML = '<tr><td class="px-4 py-4 text-slate-400 text-center" colspan="99">Conecta Google Sheets para ver los datos.</td></tr>';
+// --- Tabla genérica con búsqueda ---
+
+function pintarTablaGenerica(prefijo, filas) {
+    const thead = document.getElementById(`${prefijo}-table-head`);
+    const tbody = document.getElementById(`${prefijo}-table-body`);
+    if (!tbody) return;
+    if (!filas || filas.length === 0) {
+        tbody.innerHTML = '<tr><td class="p-4 text-center text-slate-400" colspan="99">Sin datos.</td></tr>';
+        return;
+    }
+    const encabezados = filas[0];
+    const datos = filas.slice(1).filter(f => f && f.some(c => c && String(c).trim()));
+    if (thead) {
+        thead.innerHTML = `<tr>${encabezados.map(h =>
+            `<th class="px-3 py-2 text-left whitespace-nowrap">${h || ''}</th>`
+        ).join('')}</tr>`;
+    }
+    window[`_datos_${prefijo.replace(/-/g,'_')}`] = { encabezados, datos };
+    if (datos.length === 0) {
+        tbody.innerHTML = '<tr><td class="p-4 text-center text-slate-400" colspan="99">Sin registros.</td></tr>';
+        return;
+    }
+    tbody.innerHTML = datos.map(f =>
+        `<tr class="hover:bg-slate-50">${encabezados.map((_, i) =>
+            `<td class="px-3 py-2 text-slate-700 border-b border-slate-100 whitespace-nowrap">${f[i] ?? ''}</td>`
+        ).join('')}</tr>`
+    ).join('');
 }
 
+function pintarTablaGenericaFiltrada(prefijo) {
+    const key = prefijo.replace(/-/g,'_');
+    const dataset = window[`_datos_${key}`];
+    if (!dataset) return;
+    const { encabezados, datos } = dataset;
+    const buscador = document.getElementById(`${prefijo}-buscador`);
+    const tbody = document.getElementById(`${prefijo}-table-body`);
+    if (!tbody) return;
+    const q = buscador ? buscador.value.toLowerCase().trim() : '';
+    const filtradas = q ? datos.filter(f => f.some(c => String(c || '').toLowerCase().includes(q))) : datos;
+    if (filtradas.length === 0) {
+        tbody.innerHTML = '<tr><td class="p-4 text-center text-slate-400" colspan="99">Sin resultados para "' + q + '".</td></tr>';
+        return;
+    }
+    tbody.innerHTML = filtradas.map(f =>
+        `<tr class="hover:bg-slate-50">${encabezados.map((_, i) =>
+            `<td class="px-3 py-2 text-slate-700 border-b border-slate-100 whitespace-nowrap">${f[i] ?? ''}</td>`
+        ).join('')}</tr>`
+    ).join('');
+}
+
+// --- CDT ---
+
+async function cargarSolicitudesCDT() {
+    const tbody = document.getElementById('cdt-table-body');
+    const thead = document.getElementById('cdt-table-head');
+    if (!tbody) return;
+    const hoja  = getCelda('cdt_hoja')  || 'ORDENES';
+    const rango = getCelda('cdt_rango') || 'A1:Z200';
+    tbody.innerHTML = '<tr><td class="p-4 text-center text-slate-400" colspan="99">Cargando...</td></tr>';
+    if (thead) thead.innerHTML = '';
+    try {
+        const filas = await leerRangoGvizDe(CDT_SPREADSHEET_ID, hoja, rango);
+        pintarTablaGenerica('cdt', filas);
+    } catch(e) {
+        console.error('CDT:', e);
+        tbody.innerHTML = '<tr><td class="p-4 text-center text-red-500" colspan="99">No se pudo cargar. Verifica que Google esté conectado.</td></tr>';
+    }
+}
+
+// --- HEC y HUAP ---
+
+let _hecHuapPestana = 'hec';
+
 async function cargarCasosHecHuap(pestana) {
-    console.log('Cargando casos HEC/HUAP...');
-    const tbId = pestana === 'huap' ? 'tbody-huap' : 'tbody-hec';
-    const el = document.getElementById(tbId);
-    if (el) el.innerHTML = '<tr><td class="px-4 py-4 text-slate-400 text-center" colspan="99">Conecta Google Sheets para ver los datos.</td></tr>';
+    _hecHuapPestana = pestana || _hecHuapPestana;
+    const tbody = document.getElementById('hechuap-table-body');
+    const thead = document.getElementById('hechuap-table-head');
+    if (!tbody) return;
+    const hoja  = _hecHuapPestana === 'huap' ? getCelda('hec_huap_huap_hoja') : getCelda('hec_huap_hec_hoja');
+    const rango = getCelda('hec_huap_rango') || 'A1:G148';
+    tbody.innerHTML = '<tr><td class="p-4 text-center text-slate-400" colspan="7">Cargando...</td></tr>';
+    if (thead) thead.innerHTML = '';
+    if (!hoja) {
+        tbody.innerHTML = '<tr><td class="p-4 text-center text-slate-400" colspan="7">Sin pestaña configurada en Config. Celdas.</td></tr>';
+        return;
+    }
+    try {
+        const filas = await leerRangoGvizDe(HEC_HUAP_SPREADSHEET_ID, hoja, rango);
+        pintarTablaGenerica('hechuap', filas);
+    } catch(e) {
+        console.error('HEC/HUAP:', e);
+        tbody.innerHTML = '<tr><td class="p-4 text-center text-red-500" colspan="7">No se pudo cargar. Verifica que Google esté conectado.</td></tr>';
+    }
 }
 
 function cambiarPestanaHecHuap(pestana) {
-    const secciones = ['hec', 'huap'];
-    secciones.forEach(p => {
-        const sec = document.getElementById(`seccion-${p}`);
+    ['hec', 'huap'].forEach(p => {
         const btn = document.getElementById(`tab-btn-${p}`);
-        if (sec) sec.classList.toggle('hidden', p !== pestana);
         if (btn) {
             btn.classList.toggle('bg-white', p === pestana);
             btn.classList.toggle('text-rose-700', p === pestana);
@@ -161,22 +240,69 @@ function cambiarPestanaHecHuap(pestana) {
     cargarCasosHecHuap(pestana);
 }
 
+// --- Macrorred ---
+
 async function cargarRedDerivaciones() {
-    console.log('Cargando red de derivaciones...');
-    const el = document.getElementById('tbody-macrorred');
-    if (el) el.innerHTML = '<tr><td class="px-4 py-4 text-slate-400 text-center" colspan="99">Conecta Google Sheets para ver los datos.</td></tr>';
+    const tbody = document.getElementById('macrorred-table-body');
+    const thead = document.getElementById('macrorred-table-head');
+    if (!tbody) return;
+    const hoja  = getCelda('macrorred_hoja') || 'OTROS PÚBLICOS Y MACRORED 08/26';
+    const rango = getCelda('macrorred_rango') || 'A1:S50';
+    tbody.innerHTML = '<tr><td class="p-4 text-center text-slate-400" colspan="99">Cargando...</td></tr>';
+    if (thead) thead.innerHTML = '';
+    try {
+        const filas = await leerRangoGvizDe(MACRORRED_SPREADSHEET_ID, hoja, rango);
+        pintarTablaGenerica('macrorred', filas);
+    } catch(e) {
+        console.error('Macrorred:', e);
+        tbody.innerHTML = '<tr><td class="p-4 text-center text-red-500" colspan="99">No se pudo cargar. Verifica que Google esté conectado.</td></tr>';
+    }
 }
 
+// --- Directorios ---
+
 async function cargarDirectorioAdulto() {
-    console.log('Cargando directorio adulto...');
-    const el = document.getElementById('tbody-ref-adulto');
-    if (el) el.innerHTML = '<tr><td class="px-4 py-4 text-slate-400 text-center" colspan="99">Conecta Google Sheets para ver los datos.</td></tr>';
+    const tbody = document.getElementById('ref-adulto-table-body');
+    const thead = document.getElementById('ref-adulto-table-head');
+    if (!tbody) return;
+    const hoja  = getCelda('ref_adulto_hoja');
+    const rango = getCelda('ref_adulto_rango') || 'A1:Z200';
+    tbody.innerHTML = '<tr><td class="p-4 text-center text-slate-400" colspan="99">Cargando...</td></tr>';
+    if (thead) thead.innerHTML = '';
+    if (!hoja) {
+        tbody.innerHTML = '<tr><td class="p-4 text-center text-slate-400" colspan="99">Configura el enlace y pestaña en "Config. Celdas".</td></tr>';
+        return;
+    }
+    try {
+        const id = SPREADSHEET_IDS['ref-adulto'] || '';
+        if (!id) { tbody.innerHTML = '<tr><td class="p-4 text-center text-slate-400" colspan="99">Configura el enlace del módulo.</td></tr>'; return; }
+        const filas = await leerRangoGvizDe(id, hoja, rango);
+        pintarTablaGenerica('ref-adulto', filas);
+    } catch(e) {
+        tbody.innerHTML = '<tr><td class="p-4 text-center text-red-500" colspan="99">No se pudo cargar.</td></tr>';
+    }
 }
 
 async function cargarDirectorioPede() {
-    console.log('Cargando directorio pediatria...');
-    const el = document.getElementById('tbody-ref-pede');
-    if (el) el.innerHTML = '<tr><td class="px-4 py-4 text-slate-400 text-center" colspan="99">Conecta Google Sheets para ver los datos.</td></tr>';
+    const tbody = document.getElementById('ref-pede-table-body');
+    const thead = document.getElementById('ref-pede-table-head');
+    if (!tbody) return;
+    const hoja  = getCelda('ref_pede_hoja');
+    const rango = getCelda('ref_pede_rango') || 'A1:Z200';
+    tbody.innerHTML = '<tr><td class="p-4 text-center text-slate-400" colspan="99">Cargando...</td></tr>';
+    if (thead) thead.innerHTML = '';
+    if (!hoja) {
+        tbody.innerHTML = '<tr><td class="p-4 text-center text-slate-400" colspan="99">Configura el enlace y pestaña en "Config. Celdas".</td></tr>';
+        return;
+    }
+    try {
+        const id = SPREADSHEET_IDS['ref-pede'] || '';
+        if (!id) { tbody.innerHTML = '<tr><td class="p-4 text-center text-slate-400" colspan="99">Configura el enlace del módulo.</td></tr>'; return; }
+        const filas = await leerRangoGvizDe(id, hoja, rango);
+        pintarTablaGenerica('ref-pede', filas);
+    } catch(e) {
+        tbody.innerHTML = '<tr><td class="p-4 text-center text-red-500" colspan="99">No se pudo cargar.</td></tr>';
+    }
 }
 
 async function cargarResidentesTurno() {
