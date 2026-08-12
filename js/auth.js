@@ -137,7 +137,23 @@ async function registrarOperador(event) {
         return;
     }
 
-    okEl.innerText = `âœ“ Registro enviado para "${usuario}" (${email}). Confirma tu correo y espera aprobaciÃ³n.`;
+    // Crear automÃ¡ticamente el perfil en la tabla perfiles
+    const { error: errorPerfil } = await supabaseClient
+        .from('perfiles')
+        .insert({
+            email,
+            nombre: usuario,
+            rol: permiso === 'escritura' ? 'operador' : 'operador',
+            estado: 'pendiente',
+            turno,
+            area
+        });
+
+    if (errorPerfil) {
+        console.error('Error al crear perfil:', errorPerfil);
+    }
+
+    okEl.innerText = `âœ” Registro enviado para “${usuario}” (${email}). Confirma tu correo y espera aprobaciÃ³n.`;
     okEl.classList.remove('hidden');
     document.getElementById('panel-registro').reset();
     if (boton) { boton.disabled = false; boton.innerText = 'Registrar Operador'; }
