@@ -1,47 +1,60 @@
-﻿// ===================================================================
-// MAIN.JS - Inicialización de la aplicación
+// ===================================================================
+// MAIN.JS - Inicializacion de la aplicacion
 // ===================================================================
 
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log('🚀 Iniciando Sistema de Gestión de Camas Hospitalarias...');
+    console.log('Iniciando Sistema de Gestion de Camas Hospitalarias...');
 
-    if (!supabaseClient) {
-        const warning = document.getElementById('supabase-config-warning');
-        if (warning) warning.classList.remove('hidden');
-    }
+    // Reloj
+    if (typeof updateClock === 'function') updateClock();
 
-    if (typeof updateClock === 'function') {
-        updateClock();
-    }
+    // Cargar URLs de sheets desde localStorage
+    if (typeof cargarEnlacesConfig === 'function') cargarEnlacesConfig();
 
+    // Cargar config de celdas desde Supabase
+    if (typeof cargarConfigCeldas === 'function') await cargarConfigCeldas();
+
+    // Cargar modulos custom
+    if (typeof renderModulosCustom === 'function') await renderModulosCustom(true);
+
+    // Intentar restaurar sesion existente de Supabase
     await restaurarSesion();
-    console.log('✓ Aplicación lista');
+
+    console.log('Aplicacion lista.');
 });
 
 async function restaurarSesion() {
     if (!supabaseClient) return;
-    const { data } = await supabaseClient.auth.getSession();
-    if (data.session) {
-        const { data: perfil } = await supabaseClient
-            .from('perfiles')
-            .select('nombre, rol, estado')
-            .eq('email', data.session.user.email)
-            .single();
 
-        if (perfil && perfil.estado === 'activo') {
-            sesionActiva = {
-                usuario: perfil.nombre,
-                rol: perfil.rol,
-                permiso: perfil.rol === 'admin' ? 'escritura' : 'lectura',
-                turno: 'Largo',
-                area: 'Ambas',
-                email: extraerCorreoParaMostrar(data.session.user)
-            };
-            abrirSesion(sesionActiva);
-            return;
-        }
+    const { data } = await supabaseClient.auth.getSession();
+    if (!data?.session) {
+        // Sin sesion activa: asegurarse de mostrar login
+        const loginScreen = document.getElementById('login-screen');
+        if (loginScreen) loginScreen.classList.remove('hidden');
+        return;
     }
-    if (document.getElementById('login-screen')) {
-        document.getElementById('login-screen').classList.remove('hidden');
+
+    const email = data.session.user.email;
+    const { data: perfil } = await supabaseClient
+        .from('perfiles')
+        .select('nombre, rol, estado')
+        .eq('email', email)
+        .maybeSingle();
+
+    if (perfil && perfil.estado === 'activo') {
+        sesionActiva = {
+            usuario: perfil.nombre,
+            rol:     perfil.rol,
+            permiso: perfil.rol === 'admin' ? 'escritura' : 'lectura',
+            turno:   'Largo',
+            area:    'Ambas',
+            email:   extraerCorreoParaMostrar(data.session.user)
+        };
+        abrirSesion(sesionActiva);
+    } else {
+        // Sesion de Supabase existe pero perfil no activo: cerrar sesion
+        await supabaseClient.auth.signOut();
+        const loginScreen = document.getElementById('login-screen');
+        if (loginScreen) loginScreen.classList.remove('hidden');
     }
 }

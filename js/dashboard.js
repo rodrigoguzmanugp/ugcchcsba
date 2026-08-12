@@ -1,46 +1,54 @@
-﻿// ===================================================================
-// DASHBOARD.JS - LÃ³gica del dashboard, KPIs y tarjetas
+// ===================================================================
+// DASHBOARD.JS - Dashboard KPIs y visualizacion de datos
 // ===================================================================
 
 async function cargarKpisCamasCriticas() {
-    // Carga datos de KPI para camas crÃ­ticas desde Sheets
-    // Implementar lectura de celdas especÃ­ficas desde Google Sheets
-    console.log('Cargando KPIs de camas crÃ­ticas...');
+    console.log('Cargando KPIs de camas criticas...');
+    // Mostrar guiones mientras carga
+    ['kpi-adulto-uci', 'kpi-adulto-uti', 'kpi-pede-uci', 'kpi-pede-intermedios'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.querySelector('.kpi-valor')?.setAttribute('data-loading', 'true');
+    });
 }
 
 function pintarKpiCard(prefix, data) {
     const container = document.getElementById(`kpi-${prefix}`);
     if (!container) return;
-
-    const porcentaje = data.porcentaje || '--';
-    const disponibles = data.disponibles || '--';
-    const total = data.total || '--';
-
+    const pct   = data.porcentaje !== undefined ? `${data.porcentaje}%` : '--';
+    const disp  = data.disponibles !== undefined ? data.disponibles : '--';
+    const total = data.total       !== undefined ? data.total       : '--';
+    const colorBar = data.porcentaje >= 90 ? 'from-red-400 to-red-600'
+                   : data.porcentaje >= 70 ? 'from-amber-400 to-amber-600'
+                   : 'from-emerald-400 to-emerald-600';
     container.innerHTML = `
-        <div class="text-3xl font-bold text-slate-900">${porcentaje}%</div>
-        <div class="text-xs text-slate-500 mt-2">${disponibles} Disponibles</div>
-        <div class="bg-gradient-to-r from-blue-400 to-blue-600 h-2 rounded-full mt-3"></div>
-        <div class="text-xs text-slate-400 mt-1">${total} camas totales</div>
+        <div class="text-3xl font-bold text-slate-900 kpi-valor">${pct}</div>
+        <div class="text-xs text-slate-500 mt-2">${disp} Disponibles de ${total}</div>
+        <div class="bg-gradient-to-r ${colorBar} h-2 rounded-full mt-3"></div>
     `;
 }
 
-function construirCeldasCamasCriticas() {
-    // Construir referencia a celdas en Google Sheets para datos de camas crÃ­ticas
-    return {
-        adultoUciPorcentaje: 'B5',
-        adultoUciDisponibles: 'C5',
-        adultoUciTotal: 'D5',
-    };
-}
-
 async function cargarMatricesInforme() {
-    console.log('Cargando matrices del informe...');
+    console.log('Cargando matrices del informe de turno...');
+    const contenedor = document.getElementById('matrices-informe');
+    if (contenedor) {
+        contenedor.innerHTML = '<p class="text-slate-400 text-sm text-center py-8">Conecta Google Sheets para ver los datos del informe.</p>';
+    }
 }
 
 function pintarMatrizPorTipos(contenedorId, bloque) {
     const container = document.getElementById(contenedorId);
-    if (!container) return;
-    container.innerHTML = '<p class="text-slate-400">Cargando matriz...</p>';
+    if (!container || !bloque || bloque.length === 0) return;
+    const encabezados = bloque[0];
+    const filas = bloque.slice(1);
+    container.innerHTML = `
+        <table class="w-full text-xs border-collapse">
+            <thead>
+                <tr>${encabezados.map(h => `<th class="px-3 py-2 bg-slate-100 text-left border border-slate-200">${h}</th>`).join('')}</tr>
+            </thead>
+            <tbody>
+                ${filas.map(f => `<tr class="hover:bg-slate-50">${f.map(c => `<td class="px-3 py-1.5 border border-slate-100">${c}</td>`).join('')}</tr>`).join('')}
+            </tbody>
+        </table>`;
 }
 
 function pintarResumenOcupacionalInforme() {

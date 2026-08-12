@@ -1,15 +1,15 @@
-﻿// ===================================================================
-// GOOGLE-SHEETS.JS - IntegraciÃ³n con Google Sheets API
+// ===================================================================
+// GOOGLE-SHEETS.JS - Integracion con Google Sheets API
 // ===================================================================
 
 function guardarTokenGoogle(token, expiresIn) {
-    const expiracion = Date.now() + (expiresIn * 1000);
+    const expira = Date.now() + (expiresIn * 1000);
     sessionStorage.setItem('google_token', token);
-    sessionStorage.setItem('google_token_expires', expiracion);
+    sessionStorage.setItem('google_token_expires', String(expira));
 }
 
 function obtenerTokenGoogleVigente() {
-    const token = sessionStorage.getItem('google_token');
+    const token   = sessionStorage.getItem('google_token');
     const expires = sessionStorage.getItem('google_token_expires');
     if (!token || !expires) return null;
     if (Date.now() > parseInt(expires)) {
@@ -25,7 +25,7 @@ function actualizarBotonGoogle() {
     if (!boton) return;
     const token = obtenerTokenGoogleVigente();
     if (token) {
-        boton.innerHTML = '<i class="fa-brands fa-google text-green-600 mr-2"></i> Google Conectado âœ“';
+        boton.innerHTML = '<i class="fa-brands fa-google text-green-600 mr-2"></i> Google Conectado ✓';
         boton.classList.add('opacity-50', 'cursor-not-allowed');
         boton.disabled = true;
     } else {
@@ -36,82 +36,71 @@ function actualizarBotonGoogle() {
 }
 
 async function conectarGoogle() {
-    if (!supabaseClient) {
-        alert('Supabase no estÃ¡ configurado.');
-        return;
-    }
+    if (!supabaseClient) { alert('Supabase no configurado.'); return; }
     const { error } = await supabaseClient.auth.signInWithOAuth({
         provider: 'google',
-        options: {
-            scopes: 'https://www.googleapis.com/auth/spreadsheets.readonly',
-        }
+        options: { scopes: 'https://www.googleapis.com/auth/spreadsheets.readonly' }
     });
-    if (error) {
-        alert(`Error: ${error.message}`);
-    }
+    if (error) alert(`Error: ${error.message}`);
 }
 
 async function leerConAPIOficial(spreadsheetId, sheetName, rango) {
     const token = obtenerTokenGoogleVigente();
-    if (!token) {
-        console.warn('Token de Google no disponible');
+    if (!token) return null;
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${encodeURIComponent(sheetName)}!${rango}`;
+    try {
+        const res = await fetch(url, { headers: { 'Authorization': `Bearer ${token}` } });
+        if (!res.ok) return null;
+        const json = await res.json();
+        return json.values || [];
+    } catch (e) {
+        console.error('Error API Sheets:', e);
         return null;
     }
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}!${rango}`;
-    const response = await fetch(url, {
-        headers: { 'Authorization': `Bearer ${token}` }
-    });
-    if (!response.ok) return null;
-    const json = await response.json();
-    return json.values || [];
 }
 
-async function leerCeldaGviz(sheetName, cellRef) {
-    const spreadsheetId = SPREADSHEET_IDS.informe || '';
-    const url = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?tqx=out:json&range=${sheetName}!${cellRef}`;
+async function leerRangoGviz(sheetIdKey, rango) {
+    const spreadsheetId = SPREADSHEET_IDS[sheetIdKey] || '';
+    if (!spreadsheetId) return [];
+    const url = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?tqx=out:json&range=${rango}`;
     try {
-        const response = await fetch(url);
-        const text = await response.text();
+        const res  = await fetch(url);
+        const text = await res.text();
         const jsonStr = text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1);
-        const json = JSON.parse(jsonStr);
-        if (json.table && json.table.rows && json.table.rows[0]) {
-            return json.table.rows[0].c[0]?.v || '';
-        }
-        return '';
-    } catch (e) {
-        console.error(`Error leyendo ${sheetName}!${cellRef}:`, e);
-        return '';
-    }
-}
-
-async function leerSumaCeldas(sheetName, cellRefs) {
-    let suma = 0;
-    for (const ref of cellRefs) {
-        const valor = await leerCeldaGviz(sheetName, ref);
-        const num = parseInt(valor) || 0;
-        suma += num;
-    }
-    return suma;
-}
-
-async function leerRangoGviz(sheetName, rango) {
-    const spreadsheetId = SPREADSHEET_IDS.informe || '';
-    const url = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?tqx=out:json&range=${sheetName}!${rango}`;
-    try {
-        const response = await fetch(url);
-        const text = await response.text();
-        const jsonStr = text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1);
-        const json = JSON.parse(jsonStr);
-        const filas = [];
+        const json    = JSON.parse(jsonStr);
+        const filas   = [];
         if (json.table && json.table.rows) {
             for (const row of json.table.rows) {
-                const fila = row.c.map(cell => cell?.v || '');
+                const fila = row.c.map(cell => (cell ? String(cell.v ?? cell.f ?? '') : ''));
                 filas.push(fila);
             }
         }
         return filas;
     } catch (e) {
-        console.error(`Error leyendo ${sheetName}!${rango}:`, e);
+        console.error('Error Gviz:', e);
         return [];
     }
+}
+
+async function leerCeldaGviz(sheetIdKey, cellRef) {
+    const filas = await leerRangoGviz(sheetIdKey, cellRef);
+    return filas?.[0]?.[0] || '';
+}
+
+async function leerSumaCeldas(sheetIdKey, cellRefs) {
+    let suma = 0;
+    for (const ref of cellRefs) {
+        const valor = await leerCeldaGviz(sheetIdKey, ref);
+        suma += parseInt(valor) || 0;
+    }
+    return suma;
+}
+
+async function manejarErrorReconexionGoogle() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('error')) {
+        console.warn('Error OAuth Google:', params.get('error_description'));
+        return false;
+    }
+    return false;
 }
