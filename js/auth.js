@@ -278,30 +278,5 @@ function aplicarSesionEnInterfaz(sesion) {
             btnPendientes.classList.add('hidden');
         }
     }
-
-    restaurarSesion();
 }
 
-async function restaurarSesion() {
-    if (!supabaseClient) return;
-    const { data } = await supabaseClient.auth.getSession();
-    if (!data.session) {
-        sesionActiva = null;
-        return;
-    }
-
-    const { data: perfil } = await supabaseClient
-        .from('perfiles')
-        .select('usuario, rol, permiso')
-        .eq('id', data.session.user.id)
-        .single();
-
-    if (perfil) {
-        sesionActiva = {
-            usuario: perfil.usuario,
-            rol: perfil.rol,
-            permiso: perfil.permiso,
-            email: extraerCorreoParaMostrar(data.session.user)
-        };
-    }
-}
