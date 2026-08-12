@@ -5,6 +5,12 @@
 const SUPABASE_URL = 'https://swfruqbdiaolqiyhtjvm.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_W6ijOURYxrbCYu1s1pkyZw_GPf6pQHD';
 
+// IDs de planillas Google Sheets
+const NOVEDADES_SPREADSHEET_ID    = '1hDtmpPngKJhQ_8Tw6E53vTjiiB-4KUGBWdosvfelisM';
+const INFORME_TURNO_SPREADSHEET_ID = '1hDtmpPngKJhQ_8Tw6E53vTjiiB-4KUGBWdosvfelisM';
+const CDT_SPREADSHEET_ID          = '1B8AK-RoH2zuVpZkvPvd6MlofX361YFkC8bNhEDXEXDg';
+const HEC_HUAP_SPREADSHEET_ID     = '1t7dF3yBXQ8t0upriCQ5vnmrKouWgu2bza47QQmOGR2w';
+
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
     realtime: { enabled: false }
 });

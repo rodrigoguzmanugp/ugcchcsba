@@ -5,13 +5,10 @@
 // --- Navegacion entre secciones ---
 
 function switchModule(modId) {
-    // Ocultar todas las secciones
     document.querySelectorAll('.module-section').forEach(s => s.classList.add('hidden'));
-    // Mostrar la seccion seleccionada
     const seccion = document.getElementById(`mod-${modId}`);
     if (seccion) seccion.classList.remove('hidden');
 
-    // Actualizar estilos del nav activo
     document.querySelectorAll('.nav-btn').forEach(b => {
         b.classList.remove('text-brand-600', 'bg-brand-50', 'border', 'border-brand-200', 'active');
         b.classList.add('text-slate-600');
@@ -21,6 +18,16 @@ function switchModule(modId) {
         navBtn.classList.add('text-brand-600', 'bg-brand-50', 'border', 'border-brand-200', 'active');
         navBtn.classList.remove('text-slate-600');
     }
+
+    // Disparar carga de datos al entrar a cada modulo
+    if (modId === 'novedades'      && typeof cargarSolicitudesSalida  === 'function') cargarSolicitudesSalida();
+    if (modId === 'novedades'      && typeof cargarResidentesTurno    === 'function') cargarResidentesTurno();
+    if (modId === 'cdt'            && typeof cargarSolicitudesCDT     === 'function') cargarSolicitudesCDT();
+    if (modId === 'hec-huap'       && typeof cambiarPestanaHecHuap    === 'function') cambiarPestanaHecHuap('hec');
+    if (modId === 'macrorred'      && typeof cargarRedDerivaciones     === 'function') cargarRedDerivaciones();
+    if (modId === 'ref-adulto'     && typeof cargarDirectorioAdulto   === 'function') cargarDirectorioAdulto();
+    if (modId === 'ref-pede'       && typeof cargarDirectorioPede     === 'function') cargarDirectorioPede();
+    if (modId === 'config-celdas'  && typeof cargarConfigCeldasUI     === 'function') cargarConfigCeldasUI();
 }
 
 function navigateToModule(modId) {

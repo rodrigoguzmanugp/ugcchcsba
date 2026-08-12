@@ -52,18 +52,37 @@ function openInhabilModal() {
 
 // --- Tablas de datos ---
 
-function pintarTablaSolicitudes(tbodyId, filas) {
+function pintarTablaSolicitudes(tbodyId, filas, columnas) {
     const tbody = document.getElementById(tbodyId);
     if (!tbody) return;
-    if (!filas || filas.length === 0) {
-        tbody.innerHTML = '<tr><td class="px-4 py-4 text-slate-400 text-center" colspan="99">Sin datos disponibles.</td></tr>';
+    const cols = columnas || 6;
+    const sinEncabezado = (filas || []).filter(f => f[1] && String(f[1]).trim() !== '' && !pareceEncabezado(f));
+    if (sinEncabezado.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="${cols}" class="px-3 py-4 text-center text-slate-400">Sin solicitudes registradas.</td></tr>`;
         return;
     }
-    tbody.innerHTML = filas.map(fila =>
-        `<tr class="hover:bg-slate-50">${fila.map(celda =>
-            `<td class="px-4 py-2 border-b border-slate-100 text-sm">${celda || ''}</td>`
-        ).join('')}</tr>`
-    ).join('');
+    if (cols === 7) {
+        tbody.innerHTML = sinEncabezado.map(f => `
+            <tr class="hover:bg-slate-50">
+                <td class="px-3 py-2 whitespace-nowrap text-slate-500">${f[0]??''}</td>
+                <td class="px-3 py-2 font-medium text-slate-800">${f[1]??''}</td>
+                <td class="px-3 py-2 text-slate-600">${f[2]??''}</td>
+                <td class="px-3 py-2 text-slate-600">${f[3]??''}</td>
+                <td class="px-3 py-2 text-slate-600">${f[4]??''}</td>
+                <td class="px-3 py-2 text-slate-600">${f[5]??''}</td>
+                <td class="px-3 py-2 text-slate-500">${f[6]??''}</td>
+            </tr>`).join('');
+    } else {
+        tbody.innerHTML = sinEncabezado.map(f => `
+            <tr class="hover:bg-slate-50">
+                <td class="px-3 py-2 whitespace-nowrap text-slate-500">${f[0]??''}</td>
+                <td class="px-3 py-2 font-medium text-slate-800">${f[1]??''}</td>
+                <td class="px-3 py-2 text-slate-600">${f[2]??''}</td>
+                <td class="px-3 py-2 text-slate-600">${f[3]??''}</td>
+                <td class="px-3 py-2 text-slate-600">${f[4]??''}</td>
+                <td class="px-3 py-2"><span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full font-semibold">${f[5]??''}</span></td>
+            </tr>`).join('');
+    }
 }
 
 function pintarResidentesSimplificado(theadId, tbodyId, filas) {
@@ -88,12 +107,29 @@ function pintarResidentesSimplificado(theadId, tbodyId, filas) {
 // --- Carga de datos de modulos ---
 
 async function cargarSolicitudesSalida() {
-    console.log('Cargando solicitudes de salida...');
-    const contenedores = ['tbody-cdt-salida', 'tbody-solicitudes'];
-    contenedores.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.innerHTML = '<tr><td class="px-4 py-4 text-slate-400 text-center" colspan="99">Conecta Google Sheets para ver los datos.</td></tr>';
-    });
+    const cargas = [
+        { sheet: getCelda('novedades_adulto_hoja'), rango: getCelda('novedades_adulto_solicitudes'), tbodyId: 'tabla-solicitudes-adulto',          cols: 6 },
+        { sheet: getCelda('novedades_adulto_hoja'), rango: getCelda('novedades_adulto_pabellones'), tbodyId: 'tabla-futuros-pabellones-adulto',    cols: 6 },
+        { sheet: getCelda('novedades_pedi_hoja'),   rango: getCelda('novedades_pedi_ucip'),         tbodyId: 'tabla-solicitudes-pediatria-ucip',   cols: 7 },
+        { sheet: getCelda('novedades_pedi_hoja'),   rango: getCelda('novedades_pedi_utip'),         tbodyId: 'tabla-solicitudes-pediatria-utip',   cols: 7 }
+    ];
+
+    for (const c of cargas) {
+        const tbody = document.getElementById(c.tbodyId);
+        if (!tbody) continue;
+        if (!c.sheet || !c.rango) {
+            tbody.innerHTML = `<tr><td colspan="${c.cols}" class="px-3 py-4 text-center text-slate-400">Sin configurar — configura el rango en "Config. Celdas".</td></tr>`;
+            continue;
+        }
+        tbody.innerHTML = `<tr><td colspan="${c.cols}" class="px-3 py-4 text-center text-slate-400">Cargando...</td></tr>`;
+        try {
+            const filas = await leerRangoGviz(c.sheet, c.rango);
+            pintarTablaSolicitudes(c.tbodyId, filas, c.cols);
+        } catch (err) {
+            console.warn('No se pudo cargar tabla:', c.tbodyId, err);
+            tbody.innerHTML = `<tr><td colspan="${c.cols}" class="px-3 py-4 text-center text-red-500">No se pudo cargar. Reintenta con "Actualizar".</td></tr>`;
+        }
+    }
 }
 
 async function cargarSolicitudesCDT() {
@@ -144,7 +180,28 @@ async function cargarDirectorioPede() {
 }
 
 async function cargarResidentesTurno() {
-    console.log('Cargando residentes del turno...');
+    const theadA = 'cabecera-residentes-adulto', tbodyA = 'tabla-residentes-adulto';
+    const theadP = 'cabecera-residentes-pediatria', tbodyP = 'tabla-residentes-pediatria';
+    const el = document.getElementById(tbodyA);
+    if (el) el.innerHTML = '<tr><td class="px-3 py-4 text-center text-slate-400">Cargando...</td></tr>';
+    try {
+        const filas = await leerRangoGviz(getCelda('novedades_adulto_hoja'), getCelda('novedades_adulto_residentes'));
+        pintarResidentesSimplificado(theadA, tbodyA, filas);
+    } catch (err) {
+        console.warn('Residentes adulto:', err);
+        const t = document.getElementById(tbodyA);
+        if (t) t.innerHTML = '<tr><td class="px-3 py-4 text-center text-red-500">No se pudo cargar.</td></tr>';
+    }
+    const elP = document.getElementById(tbodyP);
+    if (elP) elP.innerHTML = '<tr><td class="px-3 py-4 text-center text-slate-400">Cargando...</td></tr>';
+    try {
+        const filasP = await leerRangoGviz(getCelda('novedades_pedi_hoja'), getCelda('novedades_pedi_residentes'));
+        pintarResidentesSimplificado(theadP, tbodyP, filasP);
+    } catch (err) {
+        console.warn('Residentes pediatria:', err);
+        const t = document.getElementById(tbodyP);
+        if (t) t.innerHTML = '<tr><td class="px-3 py-4 text-center text-red-500">No se pudo cargar.</td></tr>';
+    }
 }
 
 // --- Gestion de camas (plano) ---

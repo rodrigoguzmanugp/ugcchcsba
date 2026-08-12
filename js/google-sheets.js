@@ -59,27 +59,41 @@ async function leerConAPIOficial(spreadsheetId, sheetName, rango) {
     }
 }
 
-async function leerRangoGviz(sheetIdKey, rango) {
-    const spreadsheetId = SPREADSHEET_IDS[sheetIdKey] || '';
-    if (!spreadsheetId) return [];
-    const url = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?tqx=out:json&range=${rango}`;
+function formatearValorCelda(valor) {
+    if (typeof valor === 'string') {
+        const m = valor.match(/^Date\((\d+),\s*(\d+),\s*(\d+)\)$/);
+        if (m) {
+            const [, anio, mesIdx, dia] = m;
+            return `${String(Number(dia)).padStart(2,'0')}-${String(Number(mesIdx)+1).padStart(2,'0')}-${anio}`;
+        }
+    }
+    return valor ?? '';
+}
+
+async function leerRangoGvizDe(spreadsheetId, sheetName, rango) {
+    const oficial = await leerConAPIOficial(spreadsheetId, sheetName, rango);
+    if (oficial) return oficial;
+    if (!spreadsheetId || !sheetName || !rango) return [];
+    const url = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq`
+              + `?tqx=out:json&sheet=${encodeURIComponent(sheetName)}&range=${rango}`;
     try {
         const res  = await fetch(url);
         const text = await res.text();
-        const jsonStr = text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1);
-        const json    = JSON.parse(jsonStr);
-        const filas   = [];
-        if (json.table && json.table.rows) {
-            for (const row of json.table.rows) {
-                const fila = row.c.map(cell => (cell ? String(cell.v ?? cell.f ?? '') : ''));
-                filas.push(fila);
-            }
-        }
-        return filas;
+        const json = JSON.parse(text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1));
+        if (!json.table || !json.table.rows) return [];
+        return json.table.rows.map(r => (r.c || []).map(cell => formatearValorCelda(cell ? (cell.v ?? cell.f ?? '') : '')));
     } catch (e) {
         console.error('Error Gviz:', e);
         return [];
     }
+}
+
+async function leerRangoGviz(sheetName, rango) {
+    return leerRangoGvizDe(NOVEDADES_SPREADSHEET_ID, sheetName, rango);
+}
+
+async function leerRangoGvizInforme(sheetName, rango) {
+    return leerRangoGvizDe(INFORME_TURNO_SPREADSHEET_ID, sheetName, rango);
 }
 
 async function leerCeldaGviz(sheetIdKey, cellRef) {
