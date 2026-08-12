@@ -217,41 +217,103 @@ async function cargarConfigCeldas() {
     if (!supabaseClient) return;
     try {
         const { data } = await supabaseClient.from('config_celdas').select('clave, valor');
-        if (data) {
-            data.forEach(row => {
-                localStorage.setItem(`celda_${row.clave}`, row.valor);
-            });
-        }
+        configCeldasCache = {};
+        (data || []).forEach(row => { configCeldasCache[row.clave] = row.valor; });
     } catch (e) {
         console.warn('Error cargando config_celdas:', e);
     }
 }
 
 function getCelda(clave) {
-    return localStorage.getItem(`celda_${clave}`) || '';
+    if (configCeldasCache[clave] != null) return configCeldasCache[clave];
+    return CONFIG_CELDAS_DEFAULT[clave]?.valor ?? '';
 }
 
 function getCeldasLista(clave) {
-    const valor = getCelda(clave);
-    return valor ? valor.split(',').map(v => v.trim()).filter(Boolean) : [];
+    return getCelda(clave).split(',').map(v => v.trim()).filter(Boolean);
 }
 
 async function guardarCelda(clave, valorNuevo) {
-    localStorage.setItem(`celda_${clave}`, valorNuevo);
+    const val = String(valorNuevo).trim();
+    configCeldasCache[clave] = val;
     if (supabaseClient) {
         await supabaseClient.from('config_celdas').upsert({
-            clave,
-            valor: valorNuevo,
+            clave, valor: val,
             actualizado_por: sesionActiva?.usuario || 'desconocido',
             actualizado_en: new Date().toISOString()
         });
     }
+    return true;
 }
 
 async function restaurarCeldaPorDefecto(clave) {
-    localStorage.removeItem(`celda_${clave}`);
+    delete configCeldasCache[clave];
     if (supabaseClient) {
         await supabaseClient.from('config_celdas').delete().eq('clave', clave);
+    }
+    return true;
+}
+
+function renderConfigCeldas() {
+    const cont = document.getElementById('lista-config-celdas');
+    if (!cont) return;
+
+    const grupos = {};
+    Object.keys(CONFIG_CELDAS_DEFAULT).forEach(clave => {
+        const def = CONFIG_CELDAS_DEFAULT[clave];
+        (grupos[def.grupo] = grupos[def.grupo] || []).push(clave);
+    });
+
+    cont.innerHTML = Object.keys(grupos).map(grupo => `
+        <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+            <div class="bg-slate-100 px-4 py-2 font-bold text-sm text-slate-700">${grupo}</div>
+            <div class="divide-y divide-slate-100">
+                ${grupos[grupo].map(clave => {
+                    const def   = CONFIG_CELDAS_DEFAULT[clave];
+                    const val   = getCelda(clave);
+                    const esMod = configCeldasCache[clave] != null;
+                    return `
+                    <div class="p-4 flex flex-col sm:flex-row sm:items-center gap-3">
+                        <div class="flex-1">
+                            <p class="text-xs font-semibold text-slate-700">${def.etiqueta}</p>
+                            <p class="text-[10px] text-slate-400">Clave: ${clave} · Defecto: ${def.valor}</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <input id="input-${clave}" type="text" value="${val}"
+                                class="text-xs bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 w-40 sm:w-52 focus:outline-none focus:ring-2 focus:ring-rose-400">
+                            <button onclick="guardarCeldaDesdePanel('${clave}')"
+                                class="bg-rose-600 hover:bg-rose-700 text-white text-xs font-semibold px-3 py-2 rounded-lg transition">
+                                <i class="fa-solid fa-floppy-disk"></i>
+                            </button>
+                            ${esMod ? `<button onclick="restaurarCeldaDesdePanel('${clave}')"
+                                title="Restaurar valor de fábrica"
+                                class="bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs px-3 py-2 rounded-lg transition">
+                                <i class="fa-solid fa-rotate-left"></i>
+                            </button>` : ''}
+                        </div>
+                    </div>`;
+                }).join('')}
+            </div>
+        </div>`).join('');
+}
+
+async function guardarCeldaDesdePanel(clave) {
+    const input = document.getElementById(`input-${clave}`);
+    if (!input || !input.value.trim()) return;
+    const ok = await guardarCelda(clave, input.value);
+    if (ok) {
+        renderConfigCeldas();
+        if (typeof cargarSolicitudesSalida === 'function') cargarSolicitudesSalida();
+        if (typeof cargarResidentesTurno   === 'function') cargarResidentesTurno();
+    }
+}
+
+async function restaurarCeldaDesdePanel(clave) {
+    const ok = await restaurarCeldaPorDefecto(clave);
+    if (ok) {
+        renderConfigCeldas();
+        if (typeof cargarSolicitudesSalida === 'function') cargarSolicitudesSalida();
+        if (typeof cargarResidentesTurno   === 'function') cargarResidentesTurno();
     }
 }
 

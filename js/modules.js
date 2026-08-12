@@ -27,7 +27,7 @@ function switchModule(modId) {
     if (modId === 'macrorred'      && typeof cargarRedDerivaciones     === 'function') cargarRedDerivaciones();
     if (modId === 'ref-adulto'     && typeof cargarDirectorioAdulto   === 'function') cargarDirectorioAdulto();
     if (modId === 'ref-pede'       && typeof cargarDirectorioPede     === 'function') cargarDirectorioPede();
-    if (modId === 'config-celdas'  && typeof cargarConfigCeldasUI     === 'function') cargarConfigCeldasUI();
+    if (modId === 'config-celdas'  && typeof renderConfigCeldas        === 'function') renderConfigCeldas();
 }
 
 function navigateToModule(modId) {
