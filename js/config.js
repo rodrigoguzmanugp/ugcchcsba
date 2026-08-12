@@ -23,18 +23,30 @@ const LEGACY_EMAIL_DOMAIN = '@gestorcamas.local';
 // Estado global de sesiÃ³n
 let sesionActiva = null;
 
-// Hojas Google: mapeo de mÃ³dulos -> spreadsheet IDs
+// Hojas Google: mapeo de módulos -> spreadsheet IDs
 const SHEET_URLS = {
-    novedades: 'https://docs.google.com/spreadsheets/d/1a7t7KN0d_pq_j5B92i7NV9-3mK0Q5zWvQxMn-_MzXDw/edit#gid=0',
-    horario: 'https://docs.google.com/spreadsheets/d/1a7t7KN0d_pq_j5B92i7NV9-3mK0Q5zWvQxMn-_MzXDw/edit#gid=0',
-    informe: 'https://docs.google.com/spreadsheets/d/1a7t7KN0d_pq_j5B92i7NV9-3mK0Q5zWvQxMn-_MzXDw/edit#gid=0',
+    'novedades-adulto': 'https://docs.google.com/spreadsheets/d/1hDtmpPngKJhQ_8Tw6E53vTjiiB-4KUGBWdosvfelisM/edit#gid=720250164',
+    'novedades-pediatricas': 'https://docs.google.com/spreadsheets/d/1hDtmpPngKJhQ_8Tw6E53vTjiiB-4KUGBWdosvfelisM/edit#gid=586493277',
+    'casos-huap': 'https://docs.google.com/spreadsheets/d/1t7dF3yBXQ8t0upriCQ5vnmrKouWgu2bza47QQmOGR2w/edit#gid=122616479',
+    'casos-hec': 'https://docs.google.com/spreadsheets/d/1t7dF3yBXQ8t0upriCQ5vnmrKouWgu2bza47QQmOGR2w/edit#gid=1635650262',
+    'solicitudes-cdt': 'https://docs.google.com/spreadsheets/d/1B8AK-RoH2zuVpZkvPvd6MlofX361YFkC8bNhEDXEXDg/edit',
 };
 
-// Spreadsheet IDs para lectura vÃ­a API
+// Spreadsheet IDs para lectura vía API
 const SPREADSHEET_IDS = {
-    novedades: '1a7t7KN0d_pq_j5B92i7NV9-3mK0Q5zWvQxMn-_MzXDw',
-    horario: '1a7t7KN0d_pq_j5B92i7NV9-3mK0Q5zWvQxMn-_MzXDw',
-    informe: '1a7t7KN0d_pq_j5B92i7NV9-3mK0Q5zWvQxMn-_MzXDw',
+    'novedades-adulto': '1hDtmpPngKJhQ_8Tw6E53vTjiiB-4KUGBWdosvfelisM',
+    'novedades-pediatricas': '1hDtmpPngKJhQ_8Tw6E53vTjiiB-4KUGBWdosvfelisM',
+    'casos-huap': '1t7dF3yBXQ8t0upriCQ5vnmrKouWgu2bza47QQmOGR2w',
+    'casos-hec': '1t7dF3yBXQ8t0upriCQ5vnmrKouWgu2bza47QQmOGR2w',
+    'solicitudes-cdt': '1B8AK-RoH2zuVpZkvPvd6MlofX361YFkC8bNhEDXEXDg',
+};
+
+// GID (sheet IDs) para acceso directo
+const SHEET_GIDS = {
+    'novedades-adulto': '720250164',
+    'novedades-pediatricas': '586493277',
+    'casos-huap': '122616479',
+    'casos-hec': '1635650262',
 };
 
 // Configurar listener de autenticaciÃ³n
