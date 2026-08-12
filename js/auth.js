@@ -69,8 +69,8 @@ async function iniciarSesion(event) {
 
     const { data: perfil, error: errorPerfil } = await supabaseClient
         .from('perfiles')
-        .select('usuario, rol, permiso, aprobado')
-        .eq('id', data.user.id)
+        .select('nombre, rol, estado')
+        .eq('email', data.user.email)
         .single();
 
     if (errorPerfil || !perfil) {
@@ -81,15 +81,15 @@ async function iniciarSesion(event) {
         return;
     }
 
-    if (perfil.rol !== 'admin' && !perfil.aprobado) {
-        errorEl.innerText = `Tu cuenta espera aprobaciÃ³n del administrador (${ADMIN_EMAIL}).`;
+    if (perfil.estado !== 'activo') {
+        errorEl.innerText = `Tu cuenta está ${perfil.estado === 'pendiente' ? 'pendiente de aprobación' : 'bloqueada'}. Contacta a ${ADMIN_EMAIL}.`;
         errorEl.classList.remove('hidden');
         await supabaseClient.auth.signOut();
         if (boton) { boton.disabled = false; boton.innerText = 'Ingresar al Panel'; }
         return;
     }
 
-    abrirSesion({ usuario: perfil.usuario, rol: perfil.rol, permiso: perfil.permiso, turno, area, email: extraerCorreoParaMostrar(data.user) });
+    abrirSesion({ usuario: perfil.nombre, rol: perfil.rol, permiso: perfil.rol === 'admin' ? 'escritura' : 'lectura', turno, area, email: extraerCorreoParaMostrar(data.user) });
 }
 
 function ingresarInvitado() {
