@@ -180,7 +180,9 @@ function abrirSesion(sesion) {
     shell.classList.remove('hidden');
     shell.classList.add('flex');
     aplicarSesionEnInterfaz(sesion);
-    actualizarBotonGoogle();
+    if (typeof actualizarBotonGoogle === 'function') {
+        actualizarBotonGoogle();
+    }
 }
 
 async function cerrarSesion() {
