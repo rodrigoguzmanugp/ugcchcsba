@@ -96,11 +96,14 @@ async function crearModuloCustom(event) {
     if (!nombre) { alert('Ingresa un nombre para el modulo.'); return; }
 
     if (supabaseClient) {
-        const { error } = await supabaseClient.from('modulos_custom').insert({
-            nombre, descripcion, icono, color,
-            sheet_url: sheetUrl || null,
-            creado_por: sesionActiva?.usuario || 'desconocido'
-        });
+        const full    = { nombre, descripcion, icono, color, sheet_url: sheetUrl || null, creado_por: sesionActiva?.usuario || 'desconocido' };
+        const minimal = { nombre, descripcion, sheet_url: sheetUrl || null };
+
+        let { error } = await supabaseClient.from('modulos_custom').insert(full);
+        if (error && error.message.toLowerCase().includes('column')) {
+            // La tabla no tiene icono/color/creado_por — reintentar solo con columnas base
+            ({ error } = await supabaseClient.from('modulos_custom').insert(minimal));
+        }
         if (error) {
             alert(`Error al guardar: ${error.message}`);
             return;
