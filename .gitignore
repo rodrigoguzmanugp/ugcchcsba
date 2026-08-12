@@ -1,0 +1,32 @@
+# Archivos temporales
+*.tmp
+*.bak
+*.log
+.DS_Store
+Thumbs.db
+
+# Archivos de desarrollo
+html_base.txt
+js_original.txt
+index_*.html
+
+# Credenciales (importante!)
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (si usas npm)
+node_modules/
+package-lock.json
+dist/
+build/
+
+# Sistema
+.git/
+*.git

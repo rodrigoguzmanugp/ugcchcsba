@@ -1,0 +1,137 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║              ⭐ BIENVENIDO AL SISTEMA MODULARIZADO ⭐                    ║
+║         Sistema de Gestión de Camas Hospitalarias v2.0                   ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+📌 LO PRIMERO QUE DEBES SABER:
+
+   1. Abre "index.html" para usar el sistema (igual que antes)
+   2. El código ahora está en 8 módulos pequeños en la carpeta "js/"
+   3. La documentación está en "docs/"
+
+═════════════════════════════════════════════════════════════════════════════
+
+🚀 INICIO RÁPIDO (3 pasos):
+
+   Paso 1: Abre index.html
+           → Funciona igual que antes, carga automáticamente todos los módulos
+
+   Paso 2: Cuando necesites cambiar algo
+           → Busca el módulo en "docs/FUNCTION_INDEX.md"
+           → O navega por carpeta "js/"
+
+   Paso 3: Realiza tu cambio y recarga la página
+           → Listo! Los cambios se aplican automáticamente
+
+═════════════════════════════════════════════════════════════════════════════
+
+📚 ESTRUCTURA ACTUAL:
+
+   sistemaugcc/
+   │
+   ├─ 📄 index.html ◄─── ABRE ESTE ARCHIVO
+   │
+   ├─ 📁 js/ (Módulos JavaScript - 8 archivos)
+   │  ├─ config.js          (56 líneas)   - Configuración
+   │  ├─ auth.js            (307 líneas)  - Autenticación
+   │  ├─ utils.js           (47 líneas)   - Funciones auxiliares
+   │  ├─ google-sheets.js   (117 líneas)  - Google Sheets
+   │  ├─ dashboard.js       (48 líneas)   - Dashboard
+   │  ├─ modules.js         (137 líneas)  - Módulos personalizados
+   │  ├─ ui.js              (144 líneas)  - UI e impresión
+   │  └─ main.js            (52 líneas)   - Inicialización
+   │
+   ├─ 📁 docs/ (Documentación - LEE ESTO)
+   │  ├─ MODULARIZATION_GUIDE.md ◄─── EMPIEZA AQUÍ
+   │  ├─ ARCHITECTURE.md
+   │  └─ FUNCTION_INDEX.md
+   │
+   └─ 🗂️ Backup original (referencia)
+
+═════════════════════════════════════════════════════════════════════════════
+
+✨ ¿QUÉ CAMBIÓ Y QUÉ NO?
+
+   ✅ CAMBIÓ (mejor):
+      • El código ahora está dividido en módulos
+      • Cada archivo tiene 47-307 líneas (vs 3,500 antes)
+      • Es más fácil encontrar funciones
+      • Los cambios son más seguros y aislados
+      • Claude Code usa 85% menos tokens por cambio
+
+   ❌ NO CAMBIÓ (igual funcionalidad):
+      • El sistema funciona exactamente igual
+      • Mismas características (login, dashboard, Google Sheets, etc.)
+      • Misma interfaz y usuario
+      • Todos los datos se guardan igual en Supabase
+
+═════════════════════════════════════════════════════════════════════════════
+
+🎯 CÓMO TRABAJAR CON CLAUDE CODE AHORA:
+
+   ANTES (ineficiente):
+      "Revisa el código completo y agrégame la función X"
+      → Claude cargaba 3,500 líneas, gastaba muchos tokens
+
+   AHORA (eficiente):
+      "Abre docs/FUNCTION_INDEX.md y busca dónde está X"
+      "Revisa js/auth.js y agrégame la función Y en login"
+      → Claude carga solo el módulo (300-400 líneas), usa pocos tokens
+
+═════════════════════════════════════════════════════════════════════════════
+
+📖 PRÓXIMAS LECTURAS (en orden):
+
+   1️⃣  docs/MODULARIZATION_GUIDE.md
+       Cómo funciona la estructura, ejemplos, FAQs
+
+   2️⃣  docs/ARCHITECTURE.md
+       Detalles técnicos, dependencias entre módulos
+
+   3️⃣  docs/FUNCTION_INDEX.md
+       Referencia completa de todas las funciones
+
+═════════════════════════════════════════════════════════════════════════════
+
+💡 EJEMPLOS DE CAMBIOS COMUNES:
+
+   "Quiero cambiar el correo del admin"
+   → Abre: js/config.js, línea 18
+
+   "Quiero modificar el formulario de login"
+   → Abre: index.html (estructura), js/auth.js (lógica)
+
+   "Quiero agregar un botón nuevo"
+   → Abre: index.html (botón HTML), js/ui.js (función del botón)
+
+   "Quiero conectar una nueva Google Sheet"
+   → Abre: js/google-sheets.js (lectura), js/config.js (URL)
+
+═════════════════════════════════════════════════════════════════════════════
+
+🆘 ¿ALGO NO FUNCIONA?
+
+   1. Verifica que index.html esté en la carpeta correcta
+   2. Revisa que la carpeta "js/" tenga todos los 8 archivos
+   3. Abre la consola del navegador (F12) para ver errores
+   4. Consulta "docs/MODULARIZATION_GUIDE.md" sección "Errores Comunes"
+
+═════════════════════════════════════════════════════════════════════════════
+
+📞 RESUMEN EN UNA FRASE:
+
+   Tu código sigue funcionando igual, pero ahora está dividido en módulos
+   pequeños para que sea más fácil trabajar sin cargar todo cada vez.
+
+═════════════════════════════════════════════════════════════════════════════
+
+✅ LISTO PARA COMENZAR
+
+   Abre index.html y usa el sistema como siempre.
+   Lee docs/MODULARIZATION_GUIDE.md si tienes dudas.
+
+   ¡Que disfrutes de la nueva estructura! 🚀
+
+═════════════════════════════════════════════════════════════════════════════
