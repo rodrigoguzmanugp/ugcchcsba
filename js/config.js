@@ -5,8 +5,8 @@
 // Supabase Configuration
 // ANTES DE USAR â€” reemplaza con los datos de tu proyecto:
 // Supabase Dashboard > Project Settings > API
-const SUPABASE_URL = 'https://pebrjdqvvexoefvytoex.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_HVzRa4gsMNcv1jbpNrof7w_pTU6t7PS';
+const SUPABASE_URL = 'https://swfruqbdiaolqiyhtjvm.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_W6ijOURYxrbCYu1s1pkyZw_GPf6pQHD';
 
 // Inicializar cliente Supabase
 // (El SDK se carga desde CDN en el <head>)
