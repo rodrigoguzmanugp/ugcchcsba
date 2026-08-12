@@ -3,9 +3,9 @@
 // ===================================================================
 
 function guardarTokenGoogle(token, expiresIn) {
-    const expiraciÃ³n = Date.now() + (expiresIn * 1000);
+    const expiracion = Date.now() + (expiresIn * 1000);
     sessionStorage.setItem('google_token', token);
-    sessionStorage.setItem('google_token_expires', expiraciÃ³n);
+    sessionStorage.setItem('google_token_expires', expiracion);
 }
 
 function obtenerTokenGoogleVigente() {
