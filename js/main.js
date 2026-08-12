@@ -34,7 +34,13 @@ async function restaurarSesion() {
         return;
     }
 
-    const email = data.session.user.email;
+    // Guardar token Google si viene de OAuth redirect
+    if (data.session.provider_token && typeof guardarTokenGoogle === 'function') {
+        guardarTokenGoogle(data.session.provider_token, data.session.expires_in || 3600);
+    }
+
+    const email = data.session.user.email
+        || (data.session.user.identities || []).find(i => i.provider === 'google')?.identity_data?.email;
     const { data: perfil } = await supabaseClient
         .from('perfiles')
         .select('nombre, rol, estado')

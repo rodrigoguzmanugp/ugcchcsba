@@ -39,7 +39,10 @@ async function conectarGoogle() {
     if (!supabaseClient) { alert('Supabase no configurado.'); return; }
     const { error } = await supabaseClient.auth.signInWithOAuth({
         provider: 'google',
-        options: { scopes: 'https://www.googleapis.com/auth/spreadsheets.readonly' }
+        options: {
+            scopes: 'https://www.googleapis.com/auth/spreadsheets.readonly',
+            redirectTo: 'https://rodrigoguzmanugp.github.io/ugcchcsba/'
+        }
     });
     if (error) {
         if (error.message.includes('provider is not enabled') || error.message.includes('Unsupported provider')) {
