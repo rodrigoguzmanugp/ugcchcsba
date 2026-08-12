@@ -41,7 +41,13 @@ async function conectarGoogle() {
         provider: 'google',
         options: { scopes: 'https://www.googleapis.com/auth/spreadsheets.readonly' }
     });
-    if (error) alert(`Error: ${error.message}`);
+    if (error) {
+        if (error.message.includes('provider is not enabled') || error.message.includes('Unsupported provider')) {
+            alert('El proveedor Google no está activado en Supabase.\n\nVe a: Supabase Dashboard → Authentication → Providers → Google y actívalo.\n\nSi tus planillas son públicas ("Cualquiera con el enlace puede ver"), no necesitas conectar Google.');
+        } else {
+            alert(`Error al conectar Google: ${error.message}`);
+        }
+    }
 }
 
 async function leerConAPIOficial(spreadsheetId, sheetName, rango) {
