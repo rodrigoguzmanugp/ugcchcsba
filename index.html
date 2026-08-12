@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!-- Cache bust: 2026-08-11-v3 -->
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de GestiÃ³n de Camas Hospitalarias 2026</title>
+    <title>Sistema de Gestión de Camas Hospitalarias 2026</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -50,14 +50,14 @@
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
-        /* Barra de desplazamiento horizontal del menÃº de navegaciÃ³n: mÃ¡s ancha/visible */
+        /* Barra de desplazamiento horizontal del menú de navegación: más ancha/visible */
         #nav-scroll::-webkit-scrollbar { height: 12px; }
         #nav-scroll::-webkit-scrollbar-track { background: #f1f5f9; }
         #nav-scroll::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 6px; }
         #nav-scroll::-webkit-scrollbar-thumb:hover { background: #64748b; }
         #nav-scroll { scrollbar-width: auto; scrollbar-color: #94a3b8 #f1f5f9; }
 
-        /* Barra de desplazamiento horizontal de los botones del encabezado: mÃ¡s ancha/visible */
+        /* Barra de desplazamiento horizontal de los botones del encabezado: más ancha/visible */
         .header-scroll-wide::-webkit-scrollbar { height: 10px; }
         .header-scroll-wide::-webkit-scrollbar-track { background: #1e293b; }
         .header-scroll-wide::-webkit-scrollbar-thumb { background: #64748b; border-radius: 6px; }
@@ -73,19 +73,19 @@
     <div id="login-screen" class="fixed inset-0 z-[999] bg-slate-950 flex items-center justify-center p-4">
         <div class="w-full max-w-sm bg-slate-50 rounded-2xl shadow-2xl p-7">
             <div class="flex justify-center mb-3">
-                <img src="data:image/jpeg;base64,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" alt="Hospital ClÃ­nico San Borja UGP" class="h-20 w-auto object-contain">
+                <img src="data:image/jpeg;base64,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" alt="Hospital Clínico San Borja UGP" class="h-20 w-auto object-contain">
             </div>
-            <p class="text-center text-lg font-extrabold text-slate-900 mt-1 mb-5">Unidad de GestiÃ³n de Pacientes</p>
+            <p class="text-center text-lg font-extrabold text-slate-900 mt-1 mb-5">Unidad de Gestión de Pacientes</p>
 
             <!-- Tabs -->
             <div class="flex border-b border-slate-200 mb-5 text-sm font-semibold">
-                <button id="tab-btn-login" onclick="mostrarTabLogin('login')" class="flex-1 pb-2.5 text-slate-900 border-b-2 border-indigo-500">Iniciar SesiÃ³n</button>
+                <button id="tab-btn-login" onclick="mostrarTabLogin('login')" class="flex-1 pb-2.5 text-slate-900 border-b-2 border-indigo-500">Iniciar Sesión</button>
                 <button id="tab-btn-registro" onclick="mostrarTabLogin('registro')" class="flex-1 pb-2.5 text-slate-400 border-b-2 border-transparent">Registrar Operador</button>
             </div>
 
             <p id="supabase-config-warning" class="hidden text-[11px] bg-amber-50 text-amber-700 border border-amber-200 rounded-lg px-3 py-2 mb-4">
                 <i class="fa-solid fa-triangle-exclamation mr-1"></i>
-                Supabase no estÃ¡ configurado: define <code>SUPABASE_URL</code> y <code>SUPABASE_ANON_KEY</code> en el script.
+                Supabase no está configurado: define <code>SUPABASE_URL</code> y <code>SUPABASE_ANON_KEY</code> en el script.
             </p>
 
             <!-- LOGIN PANEL -->
@@ -95,8 +95,8 @@
                     <input id="login-usuario" type="text" autocomplete="username" placeholder="Ej. administrador o tu@gmail.com" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" required>
                 </div>
                 <div>
-                    <label class="block text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">ContraseÃ±a</label>
-                    <input id="login-clave" type="password" autocomplete="current-password" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" required>
+                    <label class="block text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">Contraseña</label>
+                    <input id="login-clave" type="password" autocomplete="current-password" placeholder="••••••••" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" required>
                 </div>
                 <div class="grid grid-cols-2 gap-3">
                     <div>
@@ -108,11 +108,11 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">Ãrea de Trabajo</label>
+                        <label class="block text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">Área de Trabajo</label>
                         <select id="login-area" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400">
                             <option>Ambas</option>
                             <option>Adulto</option>
-                            <option>PediatrÃ­a</option>
+                            <option>Pediatría</option>
                         </select>
                     </div>
                 </div>
@@ -132,17 +132,17 @@
                 <div>
                     <label class="block text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">Correo Gmail (se valida por correo)</label>
                     <input id="reg-email" type="email" placeholder="Ej. jperez@gmail.com" pattern="^[^\s@]+@gmail\.com$" title="Debe ser un correo @gmail.com" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" required>
-                    <p class="text-[10px] text-slate-400 mt-1">Te llegarÃ¡ un correo de confirmaciÃ³n de Supabase a esta direcciÃ³n.</p>
+                    <p class="text-[10px] text-slate-400 mt-1">Te llegará un correo de confirmación de Supabase a esta dirección.</p>
                 </div>
                 <div>
-                    <label class="block text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">ContraseÃ±a</label>
-                    <input id="reg-clave" type="password" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" required minlength="6">
+                    <label class="block text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">Contraseña</label>
+                    <input id="reg-clave" type="password" placeholder="••••••••" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" required minlength="6">
                 </div>
                 <div>
                     <label class="block text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">Permiso de Acceso</label>
                     <select id="reg-permiso" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400">
-                        <option value="lectura">Solo Lectura (consulta los mÃ³dulos y planillas)</option>
-                        <option value="escritura">Escritura (ademÃ¡s puede configurar enlaces de las hojas)</option>
+                        <option value="lectura">Solo Lectura (consulta los módulos y planillas)</option>
+                        <option value="escritura">Escritura (además puede configurar enlaces de las hojas)</option>
                     </select>
                 </div>
                 <div class="grid grid-cols-2 gap-3">
@@ -155,17 +155,17 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">Ãrea</label>
+                        <label class="block text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">Área</label>
                         <select id="reg-area" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400">
                             <option>Ambas</option>
                             <option>Adulto</option>
-                            <option>PediatrÃ­a</option>
+                            <option>Pediatría</option>
                         </select>
                     </div>
                 </div>
                 <p class="text-[10px] text-slate-400">
                     <i class="fa-solid fa-shield-halved mr-1"></i>
-                    Tu cuenta quedarÃ¡ <strong>pendiente de aprobaciÃ³n</strong> del administrador
+                    Tu cuenta quedará <strong>pendiente de aprobación</strong> del administrador
                     (<span class="font-medium">rodrigoguzman.ugp@gmail.com</span>) hasta que la habilite.
                 </p>
                 <p id="registro-error" class="text-xs text-red-600 hidden"></p>
@@ -173,7 +173,7 @@
                 <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm rounded-lg py-2.5 transition shadow">Registrar Operador</button>
             </form>
 
-            <p class="text-center text-[10px] text-slate-400 mt-5">Unidad de GestiÃ³n Centralizada de Camas (UGCC)</p>
+            <p class="text-center text-[10px] text-slate-400 mt-5">Unidad de Gestión Centralizada de Camas (UGCC)</p>
         </div>
     </div>
 
@@ -185,11 +185,11 @@
                 <!-- Logo / Title -->
                 <div class="flex items-center space-x-3 cursor-pointer min-w-0" onclick="switchModule('home')">
                     <div class="bg-white p-1.5 rounded-lg shrink-0">
-                        <img src="data:image/jpeg;base64,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" alt="Hospital San Borja ArriarÃ¡n UGP" class="h-16 w-auto object-contain">
+                        <img src="data:image/jpeg;base64,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" alt="Hospital San Borja Arriarán UGP" class="h-16 w-auto object-contain">
                     </div>
                     <div class="min-w-0 max-w-[150px] sm:max-w-none">
-                        <h1 class="font-bold text-sm sm:text-lg leading-tight tracking-wide">UGP: Sistema de GestiÃ³n de Pacientes</h1>
-                        <p class="text-[10px] sm:text-xs text-slate-400">Hospital San Borja ArriarÃ¡n - Red Asistencial 2026-v1</p>
+                        <h1 class="font-bold text-sm sm:text-lg leading-tight tracking-wide">UGP: Sistema de Gestión de Pacientes</h1>
+                        <p class="text-[10px] sm:text-xs text-slate-400">Hospital San Borja Arriarán - Red Asistencial 2026-v1</p>
                     </div>
                 </div>
 
@@ -203,7 +203,7 @@
                         <i class="fa-solid fa-file-excel mr-2"></i> Abrir Google Sheet
                     </button>
                     <button data-restrict-guest="true" onclick="imprimirSolicitudPabellon()" class="bg-amber-600 hover:bg-amber-500 text-white px-3 py-1.5 rounded-lg font-medium transition flex items-center shadow-sm text-xs sm:text-sm">
-                        <i class="fa-solid fa-scissors mr-2"></i> Solicitud PabellÃ³n
+                        <i class="fa-solid fa-scissors mr-2"></i> Solicitud Pabellón
                     </button>
                     <button id="btn-usuarios-pendientes" onclick="abrirPanelAprobaciones()" class="hidden relative bg-rose-600 hover:bg-rose-500 text-white px-3 py-1.5 rounded-lg font-medium transition items-center shadow-sm text-xs sm:text-sm">
                         <i class="fa-solid fa-user-check mr-2"></i> Usuarios Pendientes
@@ -214,11 +214,11 @@
                     </button>
                     <div class="hidden sm:flex items-center bg-slate-800 pl-3 pr-1.5 py-1.5 rounded-lg border border-slate-700 space-x-2">
                         <div class="text-right leading-tight">
-                            <p class="text-xs font-semibold text-white" id="user-badge-nombre">â€”</p>
-                            <p class="text-[10px] text-slate-400" id="user-badge-rol">â€”</p>
+                            <p class="text-xs font-semibold text-white" id="user-badge-nombre">"”</p>
+                            <p class="text-[10px] text-slate-400" id="user-badge-rol">"”</p>
                             <p class="text-[10px] text-slate-500" id="user-badge-email"></p>
                         </div>
-                        <button onclick="cerrarSesion()" title="Cerrar sesiÃ³n" class="bg-slate-700 hover:bg-red-600 text-white w-7 h-7 rounded-md flex items-center justify-center transition">
+                        <button onclick="cerrarSesion()" title="Cerrar sesión" class="bg-slate-700 hover:bg-red-600 text-white w-7 h-7 rounded-md flex items-center justify-center transition">
                             <i class="fa-solid fa-right-from-bracket text-xs"></i>
                         </button>
                     </div>
@@ -228,14 +228,14 @@
     </header>
 
     <!-- ========================================================= -->
-    <!-- MODAL: APROBACIÃ“N DE USUARIOS NUEVOS (SOLO ADMIN)         -->
+    <!-- MODAL: APROBACIÁ“N DE USUARIOS NUEVOS (SOLO ADMIN)         -->
     <!-- ========================================================= -->
     <div id="modal-aprobaciones" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[85vh] flex flex-col overflow-hidden">
             <div class="bg-slate-900 text-white px-6 py-4 flex items-center justify-between">
                 <div class="flex items-center space-x-2">
                     <i class="fa-solid fa-user-check text-rose-400"></i>
-                    <h3 class="font-bold text-base">Usuarios Pendientes de AprobaciÃ³n</h3>
+                    <h3 class="font-bold text-base">Usuarios Pendientes de Aprobación</h3>
                 </div>
                 <button onclick="cerrarPanelAprobaciones()" class="text-slate-400 hover:text-white transition">
                     <i class="fa-solid fa-xmark text-xl"></i>
@@ -248,14 +248,14 @@
     </div>
 
     <!-- ========================================================= -->
-    <!-- MODAL: CREAR MÃ“DULO PERSONALIZADO                          -->
+    <!-- MODAL: CREAR MÁ“DULO PERSONALIZADO                          -->
     <!-- ========================================================= -->
     <div id="modal-crear-modulo" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] flex flex-col overflow-hidden">
             <div class="bg-slate-900 text-white px-6 py-4 flex items-center justify-between">
                 <div class="flex items-center space-x-2">
                     <i class="fa-solid fa-layer-group text-brand-400"></i>
-                    <h3 class="font-bold text-base">Crear MÃ³dulo</h3>
+                    <h3 class="font-bold text-base">Crear Módulo</h3>
                 </div>
                 <button onclick="cerrarModalCrearModulo()" class="text-slate-400 hover:text-white transition">
                     <i class="fa-solid fa-xmark text-xl"></i>
@@ -263,20 +263,20 @@
             </div>
             <form onsubmit="crearModuloCustom(event)" class="p-6 space-y-4 overflow-y-auto text-sm">
                 <div>
-                    <label class="block text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">Nombre del MÃ³dulo</label>
-                    <input id="cm-nombre" type="text" placeholder="Ej. ComitÃ© de Ã‰tica" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400" required>
+                    <label class="block text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">Nombre del Módulo</label>
+                    <input id="cm-nombre" type="text" placeholder="Ej. Comité de Ética" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400" required>
                 </div>
                 <div>
-                    <label class="block text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">DescripciÃ³n corta</label>
+                    <label class="block text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">Descripción corta</label>
                     <input id="cm-descripcion" type="text" placeholder="Ej. Registro y seguimiento de casos" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400">
                 </div>
                 <div class="grid grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">Ãcono</label>
+                        <label class="block text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">Ácono</label>
                         <select id="cm-icono" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400">
                             <option value="fa-file-excel">ðŸ“Š Planilla</option>
                             <option value="fa-clipboard-list">ðŸ“‹ Registro</option>
-                            <option value="fa-user-doctor">ðŸ©º ClÃ­nico</option>
+                            <option value="fa-user-doctor">ðŸ©º Clínico</option>
                             <option value="fa-hospital">ðŸ¥ Hospital</option>
                             <option value="fa-bell">ðŸ”” Alertas</option>
                             <option value="fa-truck-medical">ðŸš‘ Traslados</option>
@@ -289,11 +289,11 @@
                         <select id="cm-color" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400">
                             <option value="brand">Azul (marca)</option>
                             <option value="emerald">Verde</option>
-                            <option value="amber">Ãmbar</option>
+                            <option value="amber">Ámbar</option>
                             <option value="rose">Rosado</option>
-                            <option value="indigo">Ãndigo</option>
+                            <option value="indigo">Ándigo</option>
                             <option value="teal">Verde azulado</option>
-                            <option value="purple">PÃºrpura</option>
+                            <option value="purple">Púrpura</option>
                             <option value="sky">Celeste</option>
                         </select>
                     </div>
@@ -301,10 +301,10 @@
                 <div>
                     <label class="block text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">Enlace de Google Sheet (opcional)</label>
                     <input id="cm-sheet-url" type="url" placeholder="https://docs.google.com/spreadsheets/d/..." class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400">
-                    <p class="text-[10px] text-slate-400 mt-1">Puedes dejarlo vacÃ­o y configurarlo despuÃ©s con "Configurar Enlace" dentro del mÃ³dulo. La planilla debe estar compartida como "Cualquiera con el enlace puede ver".</p>
+                    <p class="text-[10px] text-slate-400 mt-1">Puedes dejarlo vacío y configurarlo después con "Configurar Enlace" dentro del módulo. La planilla debe estar compartida como "Cualquiera con el enlace puede ver".</p>
                 </div>
                 <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm rounded-lg py-2.5 transition shadow">
-                    <i class="fa-solid fa-plus mr-1.5"></i> Crear MÃ³dulo
+                    <i class="fa-solid fa-plus mr-1.5"></i> Crear Módulo
                 </button>
             </form>
         </div>
@@ -318,7 +318,7 @@
                 <i class="fa-solid fa-file-excel mr-1.5 text-emerald-600"></i> Novedades 2026 (Google Sheet)
             </button>
             <button data-restrict-guest="true" onclick="navigateToModule('inhabil')" data-restrict-guest="true" id="nav-inhabil" class="nav-btn px-3 py-2 rounded-md text-slate-600 hover:bg-slate-100 transition">
-                <i class="fa-solid fa-moon mr-1.5"></i> Horario InhÃ¡bil
+                <i class="fa-solid fa-moon mr-1.5"></i> Horario Inhábil
             </button>
             <button data-restrict-guest="true" onclick="navigateToModule('informe')" data-restrict-guest="true" id="nav-informe" class="nav-btn px-3 py-2 rounded-md text-slate-600 hover:bg-slate-100 transition">
                 <i class="fa-solid fa-clipboard-list mr-1.5"></i> Informe de Turno
@@ -333,10 +333,10 @@
                 <i class="fa-solid fa-network-wired mr-1.5"></i> Macrorred / Privados
             </button>
             <button data-restrict-guest="true" onclick="navigateToModule('ref-adulto')" data-restrict-guest="true" id="nav-ref-adulto" class="nav-btn px-3 py-2 rounded-md text-slate-600 hover:bg-slate-100 transition">
-                <i class="fa-solid fa-user-doctor mr-1.5"></i> Ref. MÃ©dicos Adulto
+                <i class="fa-solid fa-user-doctor mr-1.5"></i> Ref. Médicos Adulto
             </button>
             <button data-restrict-guest="true" onclick="navigateToModule('ref-pede')" data-restrict-guest="true" id="nav-ref-pede" class="nav-btn px-3 py-2 rounded-md text-slate-600 hover:bg-slate-100 transition">
-                <i class="fa-solid fa-child-reaching mr-1.5"></i> Ref. PediatrÃ­a/Gine
+                <i class="fa-solid fa-child-reaching mr-1.5"></i> Ref. Pediatría/Gine
             </button>
             <button data-restrict-guest="true" onclick="navigateToModule('dashboard-ejec')" id="nav-dashboard-ejec" class="nav-btn px-3 py-2 rounded-md text-slate-600 hover:bg-slate-100 transition">
                 <i class="fa-solid fa-chart-pie mr-1.5"></i> Dashboard Ejecutivo
@@ -360,16 +360,16 @@
                 <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
                         <span class="bg-brand-500/30 text-brand-200 text-xs font-semibold px-2.5 py-1 rounded-full border border-brand-400/30">
-                            Unidad de GestiÃ³n Centralizada de Camas (UGCC)
+                            Unidad de Gestión Centralizada de Camas (UGCC)
                         </span>
-                        <h2 class="text-2xl font-bold mt-2">Plataforma Integrada de OcupaciÃ³n Hospitalaria</h2>
+                        <h2 class="text-2xl font-bold mt-2">Plataforma Integrada de Ocupación Hospitalaria</h2>
                         <p class="text-slate-300 text-sm mt-1 max-w-2xl">
-                            Monitoreo en tiempo real de dotaciÃ³n de camas Adulto y PediatrÃ­a, derivaciones de la Macrorred, gestiÃ³n de pabellones y registro de turno.
+                            Monitoreo en tiempo real de dotación de camas Adulto y Pediatría, derivaciones de la Macrorred, gestión de pabellones y registro de turno.
                         </p>
                     </div>
                     <div class="flex flex-wrap gap-2">
                         <button data-restrict-guest="true" onclick="imprimirSolicitudPabellon()" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold px-4 py-2 rounded-lg text-sm transition shadow">
-                            <i class="fa-solid fa-file-pdf mr-2"></i> Generar Solicitud PabellÃ³n
+                            <i class="fa-solid fa-file-pdf mr-2"></i> Generar Solicitud Pabellón
                         </button>
                         <button data-restrict-guest="true" onclick="navigateToModule('novedades')" class="bg-white/10 hover:bg-white/20 text-white font-medium px-4 py-2 rounded-lg text-sm transition border border-white/20">
                             <i class="fa-solid fa-table-cells mr-2"></i> Ver Plano Excel
@@ -379,12 +379,12 @@
             </div>
 
             <!-- Operational KPI Cards -->
-            <!-- Fuente: Google Sheet "INFORME DE TURNO" Â· Adulto = pestaÃ±a "ENCUESTAS ÃREA ADULTO" Â· PediatrÃ­a = pestaÃ±a "ENCUESTAS ÃREA PEDIATRIA" -->
+            <!-- Fuente: Google Sheet "INFORME DE TURNO" · Adulto = pestaña "ENCUESTAS ÁREA ADULTO" · Pediatría = pestaña "ENCUESTAS ÁREA PEDIATRIA" -->
             <div class="flex items-center justify-between mb-1">
                 <p class="text-[11px] text-slate-400">
                     <i class="fa-solid fa-file-excel text-emerald-500 mr-1"></i>
-                    Datos desde "INFORME DE TURNO" â€” <span class="font-medium">Encuestas Ãrea Adulto</span> / <span class="font-medium">Encuestas Ãrea PediatrÃ­a</span>
-                    Â· Actualizado: <span id="dash-kpi-updated">--:--</span>
+                    Datos desde "INFORME DE TURNO" "” <span class="font-medium">Encuestas Área Adulto</span> / <span class="font-medium">Encuestas Área Pediatría</span>
+                    · Actualizado: <span id="dash-kpi-updated">--:--</span>
                 </p>
                 <button onclick="cargarKpisCamasCriticas()" class="text-[11px] text-brand-600 hover:text-brand-700 font-medium">
                     <i class="fa-solid fa-rotate mr-1"></i>Actualizar
@@ -423,7 +423,7 @@
 
                 <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm hover:shadow transition">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-semibold uppercase text-slate-500">Camas PediatrÃ­a UCIP Totales</span>
+                        <span class="text-xs font-semibold uppercase text-slate-500">Camas Pediatría UCIP Totales</span>
                         <span class="p-2 bg-teal-50 text-teal-600 rounded-lg text-sm"><i class="fa-solid fa-child"></i></span>
                     </div>
                     <div class="mt-2 flex items-baseline">
@@ -438,7 +438,7 @@
 
                 <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm hover:shadow transition">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-semibold uppercase text-slate-500">Camas PediatrÃ­a UTIP Totales</span>
+                        <span class="text-xs font-semibold uppercase text-slate-500">Camas Pediatría UTIP Totales</span>
                         <span class="p-2 bg-purple-50 text-purple-600 rounded-lg text-sm"><i class="fa-solid fa-baby"></i></span>
                     </div>
                     <div class="mt-2 flex items-baseline">
@@ -454,7 +454,7 @@
 
             <!-- Grid of Modules Direct Access -->
             <div>
-                <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 mb-4">MÃ³dulos del Sistema</h3>
+                <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 mb-4">Módulos del Sistema</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     
                     <div data-restrict-guest="true" onclick="navigateToModule('novedades')" class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:border-emerald-500 hover:shadow-md transition cursor-pointer group">
@@ -464,7 +464,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-slate-800 text-sm group-hover:text-emerald-600">Novedades 2026</h4>
-                                <p class="text-xs text-slate-500">Abrir Google Sheet en Nueva PestaÃ±a <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></p>
+                                <p class="text-xs text-slate-500">Abrir Google Sheet en Nueva Pestaña <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></p>
                             </div>
                         </div>
                     </div>
@@ -475,7 +475,7 @@
                                 <i class="fa-solid fa-moon text-lg"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-slate-800 text-sm group-hover:text-brand-600">Horario InhÃ¡bil</h4>
+                                <h4 class="font-bold text-slate-800 text-sm group-hover:text-brand-600">Horario Inhábil</h4>
                                 <p class="text-xs text-slate-500">Abrir Google Sheet & Registros <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></p>
                             </div>
                         </div>
@@ -535,7 +535,7 @@
                                 <i class="fa-solid fa-address-book text-lg"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-slate-800 text-sm group-hover:text-brand-600">Ref. MÃ©dicos Adultos</h4>
+                                <h4 class="font-bold text-slate-800 text-sm group-hover:text-brand-600">Ref. Médicos Adultos</h4>
                                 <p class="text-xs text-slate-500">Abrir Google Sheet & Contactos <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></p>
                             </div>
                         </div>
@@ -547,13 +547,13 @@
                                 <i class="fa-solid fa-hospital-user text-lg"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-slate-800 text-sm group-hover:text-brand-600">Ref. PediatrÃ­a / Gine</h4>
+                                <h4 class="font-bold text-slate-800 text-sm group-hover:text-brand-600">Ref. Pediatría / Gine</h4>
                                 <p class="text-xs text-slate-500">Abrir Google Sheet & Contactos <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- AquÃ­ se insertan las tarjetas de mÃ³dulos personalizados creados por el usuario -->
+                    <!-- Aquí se insertan las tarjetas de módulos personalizados creados por el usuario -->
                     <div id="modulos-custom-grid" class="contents"></div>
 
                     <div data-requires-write="true" onclick="abrirModalCrearModulo()" class="bg-slate-50 p-5 rounded-xl border-2 border-dashed border-slate-300 hover:border-brand-500 hover:bg-white transition cursor-pointer group flex items-center justify-center min-h-[76px]">
@@ -561,7 +561,7 @@
                             <div class="w-10 h-10 rounded-lg border-2 border-dashed border-slate-300 group-hover:border-brand-500 flex items-center justify-center">
                                 <i class="fa-solid fa-plus text-lg"></i>
                             </div>
-                            <h4 class="font-bold text-sm">Crear MÃ³dulo</h4>
+                            <h4 class="font-bold text-sm">Crear Módulo</h4>
                         </div>
                     </div>
 
@@ -582,16 +582,16 @@
                             <i class="fa-solid fa-file-excel text-emerald-400 text-xl"></i>
                         </div>
                         <div>
-                            <h3 class="font-bold text-base text-white">Google Sheet: "NOVEDADES ADULTO Y PEDIATRÃA 2026"</h3>
-                            <p class="text-xs text-emerald-200">Planilla de cÃ¡lculo colaborativa en tiempo real UGCC</p>
+                            <h3 class="font-bold text-base text-white">Google Sheet: "NOVEDADES ADULTO Y PEDIATRÁA 2026"</h3>
+                            <p class="text-xs text-emerald-200">Planilla de cálculo colaborativa en tiempo real UGCC</p>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-wrap items-center gap-2">
                     <button data-restrict-guest="true" onclick="openModuleSheet('novedades')" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-4 py-2.5 rounded-lg text-xs transition shadow flex items-center">
-                        <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Abrir Google Sheet en Nueva PestaÃ±a
+                        <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Abrir Google Sheet en Nueva Pestaña
                     </button>
-                    <button data-requires-write="true" onclick="configureSheetUrl('novedades', 'Novedades Adulto y PediatrÃ­a')" class="bg-white/10 hover:bg-white/20 text-white font-medium px-3 py-2.5 rounded-lg text-xs transition border border-white/20">
+                    <button data-requires-write="true" onclick="configureSheetUrl('novedades', 'Novedades Adulto y Pediatría')" class="bg-white/10 hover:bg-white/20 text-white font-medium px-3 py-2.5 rounded-lg text-xs transition border border-white/20">
                         <i class="fa-solid fa-gear mr-1.5"></i> Configurar Enlace
                     </button>
                 </div>
@@ -600,7 +600,7 @@
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
                 <div>
                     <h2 class="text-lg font-bold text-slate-900">Planilla General de Camas - Novedades 2026</h2>
-                    <p class="text-xs text-slate-500">Inspirado en Planos Oficiales de PediatrÃ­a 2025 y Adulto Enero 2026</p>
+                    <p class="text-xs text-slate-500">Inspirado en Planos Oficiales de Pediatría 2025 y Adulto Enero 2026</p>
                 </div>
 
                 <!-- Controls & Filters -->
@@ -619,7 +619,7 @@
             <div class="flex flex-wrap gap-4 text-xs bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
                 <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-emerald-500 mr-1.5"></span> Disponible</span>
                 <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-blue-600 mr-1.5"></span> Ocupada</span>
-                <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-amber-500 mr-1.5"></span> Salida UPC / PabellÃ³n</span>
+                <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-amber-500 mr-1.5"></span> Salida UPC / Pabellón</span>
                 <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-rose-500 mr-1.5"></span> Bloqueada / Falla</span>
                 <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-purple-500 mr-1.5"></span> En Aseo / Pre-Alta</span>
             </div>
@@ -627,7 +627,7 @@
             <!-- ============ ADULTO ============ -->
             <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="bg-emerald-100 px-4 py-2 flex items-center justify-between">
-                    <h3 class="font-bold text-sm text-emerald-900">SOLICITUDES DE CAMA DE SALIDA / RESPALDO â€” Adulto</h3>
+                    <h3 class="font-bold text-sm text-emerald-900">SOLICITUDES DE CAMA DE SALIDA / RESPALDO "” Adulto</h3>
                     <button onclick="cargarSolicitudesSalida()" class="text-[11px] text-emerald-700 hover:text-emerald-900 font-medium">
                         <i class="fa-solid fa-rotate mr-1"></i>Actualizar
                     </button>
@@ -638,9 +638,9 @@
                             <tr>
                                 <th class="px-3 py-2 text-left font-semibold">Fecha</th>
                                 <th class="px-3 py-2 text-left font-semibold">Nombre</th>
-                                <th class="px-3 py-2 text-left font-semibold">DiagnÃ³stico</th>
+                                <th class="px-3 py-2 text-left font-semibold">Diagnóstico</th>
                                 <th class="px-3 py-2 text-left font-semibold">Equipo</th>
-                                <th class="px-3 py-2 text-left font-semibold">CirugÃ­a</th>
+                                <th class="px-3 py-2 text-left font-semibold">Cirugía</th>
                                 <th class="px-3 py-2 text-left font-semibold">Tipo de Cama / Obs</th>
                             </tr>
                         </thead>
@@ -653,7 +653,7 @@
 
             <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="bg-amber-100 px-4 py-2 flex items-center justify-between">
-                    <h3 class="font-bold text-sm text-amber-900">FUTUROS PABELLONES â€” Adulto</h3>
+                    <h3 class="font-bold text-sm text-amber-900">FUTUROS PABELLONES "” Adulto</h3>
                     <button onclick="cargarSolicitudesSalida()" class="text-[11px] text-amber-700 hover:text-amber-900 font-medium">
                         <i class="fa-solid fa-rotate mr-1"></i>Actualizar
                     </button>
@@ -664,9 +664,9 @@
                             <tr>
                                 <th class="px-3 py-2 text-left font-semibold">Fecha</th>
                                 <th class="px-3 py-2 text-left font-semibold">Nombre</th>
-                                <th class="px-3 py-2 text-left font-semibold">DiagnÃ³stico</th>
+                                <th class="px-3 py-2 text-left font-semibold">Diagnóstico</th>
                                 <th class="px-3 py-2 text-left font-semibold">Equipo</th>
-                                <th class="px-3 py-2 text-left font-semibold">CirugÃ­a</th>
+                                <th class="px-3 py-2 text-left font-semibold">Cirugía</th>
                                 <th class="px-3 py-2 text-left font-semibold">Tipo de Cama / Obs</th>
                             </tr>
                         </thead>
@@ -677,10 +677,10 @@
                 </div>
             </div>
 
-            <!-- ============ PEDIATRÃA ============ -->
+            <!-- ============ PEDIATRÁA ============ -->
             <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="bg-teal-100 px-4 py-2 flex items-center justify-between">
-                    <h3 class="font-bold text-sm text-teal-900">SALIDAS CAMAS UCIP â€” PediatrÃ­a</h3>
+                    <h3 class="font-bold text-sm text-teal-900">SALIDAS CAMAS UCIP "” Pediatría</h3>
                     <button onclick="cargarSolicitudesSalida()" class="text-[11px] text-teal-700 hover:text-teal-900 font-medium">
                         <i class="fa-solid fa-rotate mr-1"></i>Actualizar
                     </button>
@@ -692,7 +692,7 @@
                                 <th class="px-3 py-2 text-left font-semibold">Fecha</th>
                                 <th class="px-3 py-2 text-left font-semibold">Nombre</th>
                                 <th class="px-3 py-2 text-left font-semibold">Edad</th>
-                                <th class="px-3 py-2 text-left font-semibold">DiagnÃ³stico</th>
+                                <th class="px-3 py-2 text-left font-semibold">Diagnóstico</th>
                                 <th class="px-3 py-2 text-left font-semibold">Procedimiento</th>
                                 <th class="px-3 py-2 text-left font-semibold">Equipo</th>
                                 <th class="px-3 py-2 text-left font-semibold">Observaciones</th>
@@ -707,7 +707,7 @@
 
             <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="bg-indigo-100 px-4 py-2 flex items-center justify-between">
-                    <h3 class="font-bold text-sm text-indigo-900">SALIDAS CAMAS UTIP â€” PediatrÃ­a</h3>
+                    <h3 class="font-bold text-sm text-indigo-900">SALIDAS CAMAS UTIP "” Pediatría</h3>
                     <button onclick="cargarSolicitudesSalida()" class="text-[11px] text-indigo-700 hover:text-indigo-900 font-medium">
                         <i class="fa-solid fa-rotate mr-1"></i>Actualizar
                     </button>
@@ -719,7 +719,7 @@
                                 <th class="px-3 py-2 text-left font-semibold">Fecha</th>
                                 <th class="px-3 py-2 text-left font-semibold">Nombre</th>
                                 <th class="px-3 py-2 text-left font-semibold">Edad</th>
-                                <th class="px-3 py-2 text-left font-semibold">DiagnÃ³stico</th>
+                                <th class="px-3 py-2 text-left font-semibold">Diagnóstico</th>
                                 <th class="px-3 py-2 text-left font-semibold">Procedimiento</th>
                                 <th class="px-3 py-2 text-left font-semibold">Equipo</th>
                                 <th class="px-3 py-2 text-left font-semibold">Observaciones</th>
@@ -735,7 +735,7 @@
 
 
         <!-- ========================================== -->
-        <!-- MODULE 3: PLANILLA HORARIO INHÃBIL        -->
+        <!-- MODULE 3: PLANILLA HORARIO INHÁBIL        -->
         <!-- ========================================== -->
         <section id="mod-inhabil" class="module-section hidden space-y-6">
             <div class="bg-gradient-to-r from-indigo-900 via-slate-900 to-indigo-950 rounded-2xl p-5 text-white shadow-md flex flex-col md:flex-row items-md-center justify-between gap-4 border border-indigo-700/50">
@@ -745,19 +745,19 @@
                             <i class="fa-solid fa-file-excel text-indigo-400 text-xl"></i>
                         </div>
                         <div>
-                            <h3 class="font-bold text-base text-white">Google Sheet: "PLANILLA HORARIO INHÃBIL"</h3>
+                            <h3 class="font-bold text-base text-white">Google Sheet: "PLANILLA HORARIO INHÁBIL"</h3>
                             <p class="text-xs text-indigo-200">Planilla compartida para registro de turno nocturno y fines de semana</p>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-wrap items-center gap-2">
                     <button onclick="openModuleSheet('inhabil')" class="bg-indigo-500 hover:bg-indigo-400 text-slate-950 font-bold px-4 py-2.5 rounded-lg text-xs transition shadow flex items-center">
-                        <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Abrir Google Sheet en Nueva PestaÃ±a
+                        <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Abrir Google Sheet en Nueva Pestaña
                     </button>
                     <button data-restrict-guest="true" onclick="imprimirPlanillaInhabil()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-4 py-2.5 rounded-lg text-xs transition shadow flex items-center">
                         <i class="fa-solid fa-print mr-2"></i> Imprimir Planilla
                     </button>
-                    <button data-requires-write="true" onclick="configureSheetUrl('inhabil', 'Planilla Horario InhÃ¡bil')" class="bg-white/10 hover:bg-white/20 text-white font-medium px-3 py-2.5 rounded-lg text-xs transition border border-white/20">
+                    <button data-requires-write="true" onclick="configureSheetUrl('inhabil', 'Planilla Horario Inhábil')" class="bg-white/10 hover:bg-white/20 text-white font-medium px-3 py-2.5 rounded-lg text-xs transition border border-white/20">
                         <i class="fa-solid fa-gear mr-1.5"></i> Configurar Enlace
                     </button>
                 </div>
@@ -765,11 +765,11 @@
 
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
                 <div>
-                    <h2 class="text-lg font-bold text-slate-900">Planilla Registro Horario InhÃ¡bil</h2>
-                    <p class="text-xs text-slate-500">GestiÃ³n de traslados, ingresos urgentes y asignaciones de noche / fines de semana</p>
+                    <h2 class="text-lg font-bold text-slate-900">Planilla Registro Horario Inhábil</h2>
+                    <p class="text-xs text-slate-500">Gestión de traslados, ingresos urgentes y asignaciones de noche / fines de semana</p>
                 </div>
                 <button onclick="openInhabilModal()" class="bg-brand-600 hover:bg-brand-700 text-white text-xs px-4 py-2 rounded-lg font-medium shadow-sm flex items-center">
-                    <i class="fa-solid fa-plus mr-1.5"></i> Nuevo Registro InhÃ¡bil
+                    <i class="fa-solid fa-plus mr-1.5"></i> Nuevo Registro Inhábil
                 </button>
             </div>
 
@@ -794,10 +794,10 @@
                 </div>
             </div>
 
-            <!-- Residentes en Turno (datos en vivo desde "NOVEDADES ADULTO Y PEDIATRÃA 2026") -->
+            <!-- Residentes en Turno (datos en vivo desde "NOVEDADES ADULTO Y PEDIATRÁA 2026") -->
             <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="bg-sky-100 px-4 py-2 flex items-center justify-between">
-                    <h3 class="font-bold text-sm text-sky-900">RESIDENTES EN TURNO â€” Adulto</h3>
+                    <h3 class="font-bold text-sm text-sky-900">RESIDENTES EN TURNO "” Adulto</h3>
                     <button onclick="cargarResidentesTurno()" class="text-[11px] text-sky-700 hover:text-sky-900 font-medium">
                         <i class="fa-solid fa-rotate mr-1"></i>Actualizar
                     </button>
@@ -814,7 +814,7 @@
 
             <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="bg-pink-100 px-4 py-2 flex items-center justify-between">
-                    <h3 class="font-bold text-sm text-pink-900">RESIDENTES EN TURNO â€” PediatrÃ­a &amp; Materno</h3>
+                    <h3 class="font-bold text-sm text-pink-900">RESIDENTES EN TURNO "” Pediatría &amp; Materno</h3>
                     <button onclick="cargarResidentesTurno()" class="text-[11px] text-pink-700 hover:text-pink-900 font-medium">
                         <i class="fa-solid fa-rotate mr-1"></i>Actualizar
                     </button>
@@ -849,7 +849,7 @@
                 </div>
                 <div class="flex flex-wrap items-center gap-2">
                     <button onclick="openModuleSheet('informe')" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-4 py-2.5 rounded-lg text-xs transition shadow flex items-center">
-                        <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Abrir Google Sheet en Nueva PestaÃ±a
+                        <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Abrir Google Sheet en Nueva Pestaña
                     </button>
                     <button data-requires-write="true" onclick="configureSheetUrl('informe', 'Informe de Turno')" class="bg-white/10 hover:bg-white/20 text-white font-medium px-3 py-2.5 rounded-lg text-xs transition border border-white/20">
                         <i class="fa-solid fa-gear mr-1.5"></i> Configurar Enlace
@@ -871,8 +871,8 @@
             <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-6 print-card">
                 <div class="border-b border-slate-200 pb-4 flex justify-between items-start">
                     <div>
-                        <h3 class="text-xl font-bold text-slate-900">REPORTE CONSOLIDADO DE GESTIÃ“N DE CAMAS</h3>
-                        <p class="text-xs text-slate-500">Unidad de GestiÃ³n Centralizada de Camas (UGCC)</p>
+                        <h3 class="text-xl font-bold text-slate-900">REPORTE CONSOLIDADO DE GESTIÁ“N DE CAMAS</h3>
+                        <p class="text-xs text-slate-500">Unidad de Gestión Centralizada de Camas (UGCC)</p>
                     </div>
                     <div class="text-right text-xs text-slate-600">
                         <p><span class="font-semibold">Turno:</span> 24 Horas</p>
@@ -880,7 +880,7 @@
                     </div>
                 </div>
 
-                <!-- Resumen de OcupaciÃ³n por Ãrea -->
+                <!-- Resumen de Ocupación por Área -->
                 <div>
                     <h4 class="text-sm font-bold text-slate-800 mb-3 uppercase tracking-wide">1. Resumen Ocupacional</h4>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs">
@@ -890,11 +890,11 @@
                                 <p class="font-bold text-slate-700 uppercase text-[11px]">Camas Adulto UCI</p>
                             </div>
                             <div class="space-y-1">
-                                <div class="flex justify-between"><span>DotaciÃ³n:</span> <span class="font-bold" id="informe-uci-adulto-dotacion">â€”</span></div>
-                                <div class="flex justify-between"><span>Ocupadas:</span> <span class="font-bold text-blue-600" id="informe-uci-adulto-ocupadas">â€”</span></div>
-                                <div class="flex justify-between"><span>Reservadas:</span> <span class="font-bold text-amber-600" id="informe-uci-adulto-reservadas">â€”</span></div>
-                                <div class="flex justify-between"><span>Bloqueadas:</span> <span class="font-bold text-rose-600" id="informe-uci-adulto-bloqueadas">â€”</span></div>
-                                <div class="flex justify-between border-t border-slate-200 pt-1 mt-1"><span>Disponibles:</span> <span class="font-bold text-emerald-600" id="informe-uci-adulto-disponibles">â€”</span></div>
+                                <div class="flex justify-between"><span>Dotación:</span> <span class="font-bold" id="informe-uci-adulto-dotacion">"”</span></div>
+                                <div class="flex justify-between"><span>Ocupadas:</span> <span class="font-bold text-blue-600" id="informe-uci-adulto-ocupadas">"”</span></div>
+                                <div class="flex justify-between"><span>Reservadas:</span> <span class="font-bold text-amber-600" id="informe-uci-adulto-reservadas">"”</span></div>
+                                <div class="flex justify-between"><span>Bloqueadas:</span> <span class="font-bold text-rose-600" id="informe-uci-adulto-bloqueadas">"”</span></div>
+                                <div class="flex justify-between border-t border-slate-200 pt-1 mt-1"><span>Disponibles:</span> <span class="font-bold text-emerald-600" id="informe-uci-adulto-disponibles">"”</span></div>
                             </div>
                         </div>
                         <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
@@ -903,37 +903,37 @@
                                 <p class="font-bold text-slate-700 uppercase text-[11px]">Camas Adulto UTI</p>
                             </div>
                             <div class="space-y-1">
-                                <div class="flex justify-between"><span>DotaciÃ³n:</span> <span class="font-bold" id="informe-uti-adulto-dotacion">â€”</span></div>
-                                <div class="flex justify-between"><span>Ocupadas:</span> <span class="font-bold text-blue-600" id="informe-uti-adulto-ocupadas">â€”</span></div>
-                                <div class="flex justify-between"><span>Reservadas:</span> <span class="font-bold text-amber-600" id="informe-uti-adulto-reservadas">â€”</span></div>
-                                <div class="flex justify-between"><span>Bloqueadas:</span> <span class="font-bold text-rose-600" id="informe-uti-adulto-bloqueadas">â€”</span></div>
-                                <div class="flex justify-between border-t border-slate-200 pt-1 mt-1"><span>Disponibles:</span> <span class="font-bold text-emerald-600" id="informe-uti-adulto-disponibles">â€”</span></div>
+                                <div class="flex justify-between"><span>Dotación:</span> <span class="font-bold" id="informe-uti-adulto-dotacion">"”</span></div>
+                                <div class="flex justify-between"><span>Ocupadas:</span> <span class="font-bold text-blue-600" id="informe-uti-adulto-ocupadas">"”</span></div>
+                                <div class="flex justify-between"><span>Reservadas:</span> <span class="font-bold text-amber-600" id="informe-uti-adulto-reservadas">"”</span></div>
+                                <div class="flex justify-between"><span>Bloqueadas:</span> <span class="font-bold text-rose-600" id="informe-uti-adulto-bloqueadas">"”</span></div>
+                                <div class="flex justify-between border-t border-slate-200 pt-1 mt-1"><span>Disponibles:</span> <span class="font-bold text-emerald-600" id="informe-uti-adulto-disponibles">"”</span></div>
                             </div>
                         </div>
                         <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
                             <div class="flex items-center space-x-2 mb-2">
                                 <span class="p-1.5 bg-teal-50 text-teal-600 rounded-md"><i class="fa-solid fa-child"></i></span>
-                                <p class="font-bold text-slate-700 uppercase text-[11px]">Camas PediatrÃ­a UCIP</p>
+                                <p class="font-bold text-slate-700 uppercase text-[11px]">Camas Pediatría UCIP</p>
                             </div>
                             <div class="space-y-1">
-                                <div class="flex justify-between"><span>DotaciÃ³n:</span> <span class="font-bold" id="informe-ucip-pedi-dotacion">â€”</span></div>
-                                <div class="flex justify-between"><span>Ocupadas:</span> <span class="font-bold text-blue-600" id="informe-ucip-pedi-ocupadas">â€”</span></div>
-                                <div class="flex justify-between"><span>Reservadas:</span> <span class="font-bold text-amber-600" id="informe-ucip-pedi-reservadas">â€”</span></div>
-                                <div class="flex justify-between"><span>Bloqueadas:</span> <span class="font-bold text-rose-600" id="informe-ucip-pedi-bloqueadas">â€”</span></div>
-                                <div class="flex justify-between border-t border-slate-200 pt-1 mt-1"><span>Disponibles:</span> <span class="font-bold text-emerald-600" id="informe-ucip-pedi-disponibles">â€”</span></div>
+                                <div class="flex justify-between"><span>Dotación:</span> <span class="font-bold" id="informe-ucip-pedi-dotacion">"”</span></div>
+                                <div class="flex justify-between"><span>Ocupadas:</span> <span class="font-bold text-blue-600" id="informe-ucip-pedi-ocupadas">"”</span></div>
+                                <div class="flex justify-between"><span>Reservadas:</span> <span class="font-bold text-amber-600" id="informe-ucip-pedi-reservadas">"”</span></div>
+                                <div class="flex justify-between"><span>Bloqueadas:</span> <span class="font-bold text-rose-600" id="informe-ucip-pedi-bloqueadas">"”</span></div>
+                                <div class="flex justify-between border-t border-slate-200 pt-1 mt-1"><span>Disponibles:</span> <span class="font-bold text-emerald-600" id="informe-ucip-pedi-disponibles">"”</span></div>
                             </div>
                         </div>
                         <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
                             <div class="flex items-center space-x-2 mb-2">
                                 <span class="p-1.5 bg-purple-50 text-purple-600 rounded-md"><i class="fa-solid fa-baby"></i></span>
-                                <p class="font-bold text-slate-700 uppercase text-[11px]">Camas PediatrÃ­a UTIP</p>
+                                <p class="font-bold text-slate-700 uppercase text-[11px]">Camas Pediatría UTIP</p>
                             </div>
                             <div class="space-y-1">
-                                <div class="flex justify-between"><span>DotaciÃ³n:</span> <span class="font-bold" id="informe-utip-pedi-dotacion">â€”</span></div>
-                                <div class="flex justify-between"><span>Ocupadas:</span> <span class="font-bold text-blue-600" id="informe-utip-pedi-ocupadas">â€”</span></div>
-                                <div class="flex justify-between"><span>Reservadas:</span> <span class="font-bold text-amber-600" id="informe-utip-pedi-reservadas">â€”</span></div>
-                                <div class="flex justify-between"><span>Bloqueadas:</span> <span class="font-bold text-rose-600" id="informe-utip-pedi-bloqueadas">â€”</span></div>
-                                <div class="flex justify-between border-t border-slate-200 pt-1 mt-1"><span>Disponibles:</span> <span class="font-bold text-emerald-600" id="informe-utip-pedi-disponibles">â€”</span></div>
+                                <div class="flex justify-between"><span>Dotación:</span> <span class="font-bold" id="informe-utip-pedi-dotacion">"”</span></div>
+                                <div class="flex justify-between"><span>Ocupadas:</span> <span class="font-bold text-blue-600" id="informe-utip-pedi-ocupadas">"”</span></div>
+                                <div class="flex justify-between"><span>Reservadas:</span> <span class="font-bold text-amber-600" id="informe-utip-pedi-reservadas">"”</span></div>
+                                <div class="flex justify-between"><span>Bloqueadas:</span> <span class="font-bold text-rose-600" id="informe-utip-pedi-bloqueadas">"”</span></div>
+                                <div class="flex justify-between border-t border-slate-200 pt-1 mt-1"><span>Disponibles:</span> <span class="font-bold text-emerald-600" id="informe-utip-pedi-disponibles">"”</span></div>
                             </div>
                         </div>
                     </div>
@@ -944,27 +944,27 @@
                     <h4 class="text-sm font-bold text-slate-800 uppercase tracking-wide">3. Camas por Tipo y Bloques Especiales</h4>
                     <button onclick="cargarMatricesInforme()" class="text-[11px] text-brand-600 hover:text-brand-700 font-medium"><i class="fa-solid fa-rotate mr-1"></i>Actualizar</button>
                 </div>
-                <p class="text-[10px] text-slate-400 -mt-2 mb-2">Cada tabla muestra la letra de columna real de tu planilla junto a la etiqueta esperada â€” si no calzan, ajusta el rango en "Config. Celdas" (solo Admin).</p>
+                <p class="text-[10px] text-slate-400 -mt-2 mb-2">Cada tabla muestra la letra de columna real de tu planilla junto a la etiqueta esperada "” si no calzan, ajusta el rango en "Config. Celdas" (solo Admin).</p>
 
                 <div class="space-y-4">
                     <div>
-                        <p class="text-xs font-bold text-slate-600 mb-1">Adulto Â· Camas por Tipo</p>
+                        <p class="text-xs font-bold text-slate-600 mb-1">Adulto · Camas por Tipo</p>
                         <div id="matriz-adulto-camas-tipo" class="bg-white rounded-lg border border-slate-200 overflow-x-auto"></div>
                     </div>
                     <div>
-                        <p class="text-xs font-bold text-slate-600 mb-1">Adulto Â· Altas Encuesta Ãrea Adulto (Bloque Qx / Bloque MÃ©dico / UCI / UTI)</p>
+                        <p class="text-xs font-bold text-slate-600 mb-1">Adulto · Altas Encuesta Área Adulto (Bloque Qx / Bloque Médico / UCI / UTI)</p>
                         <div id="matriz-adulto-qx-medico" class="bg-white rounded-lg border border-slate-200 overflow-x-auto"></div>
                     </div>
                     <div>
-                        <p class="text-xs font-bold text-slate-600 mb-1">PediatrÃ­a Â· Camas por Tipo</p>
+                        <p class="text-xs font-bold text-slate-600 mb-1">Pediatría · Camas por Tipo</p>
                         <div id="matriz-pedi-camas-tipo" class="bg-white rounded-lg border border-slate-200 overflow-x-auto"></div>
                     </div>
                     <div>
-                        <p class="text-xs font-bold text-slate-600 mb-1">PediatrÃ­a Â· Altas Encuesta Ãrea PediÃ¡trica (Bloque Qx / Bloque MÃ©dico / UCIP / UTIP)</p>
+                        <p class="text-xs font-bold text-slate-600 mb-1">Pediatría · Altas Encuesta Área Pediátrica (Bloque Qx / Bloque Médico / UCIP / UTIP)</p>
                         <div id="matriz-pedi-qx-medico" class="bg-white rounded-lg border border-slate-200 overflow-x-auto"></div>
                     </div>
                     <div>
-                        <p class="text-xs font-bold text-slate-600 mb-1">NeonatologÃ­a Â· Camas por Tipo</p>
+                        <p class="text-xs font-bold text-slate-600 mb-1">Neonatología · Camas por Tipo</p>
                         <div id="matriz-neo-camas-tipo" class="bg-white rounded-lg border border-slate-200 overflow-x-auto"></div>
                     </div>
                 </div>
@@ -975,39 +975,39 @@
                     <p class="text-[10px] text-slate-400 -mt-2 mb-2">Nota: los datos originales se confirman en plataforma UGCC.</p>
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-3 text-xs">
                         <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
-                            <p class="text-slate-500">NÂ° Total Pacientes Atendidos</p>
-                            <p class="text-xl font-bold text-slate-900" id="emergencia-atendidos">â€”</p>
+                            <p class="text-slate-500">N° Total Pacientes Atendidos</p>
+                            <p class="text-xl font-bold text-slate-900" id="emergencia-atendidos">"”</p>
                         </div>
                         <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
-                            <p class="text-slate-500">NÂ° Total Pacientes Hospitalizados</p>
-                            <p class="text-xl font-bold text-slate-900" id="emergencia-hospitalizados">â€”</p>
+                            <p class="text-slate-500">N° Total Pacientes Hospitalizados</p>
+                            <p class="text-xl font-bold text-slate-900" id="emergencia-hospitalizados">"”</p>
                         </div>
                         <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
-                            <p class="text-slate-500">NÂ° Total Consulta Respiratoria</p>
-                            <p class="text-xl font-bold text-slate-900" id="emergencia-respiratoria">â€”</p>
+                            <p class="text-slate-500">N° Total Consulta Respiratoria</p>
+                            <p class="text-xl font-bold text-slate-900" id="emergencia-respiratoria">"”</p>
                         </div>
                         <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
-                            <p class="text-slate-500">Urgencia Gineco-ObstÃ©trica Â· Atendidos</p>
-                            <p class="text-xl font-bold text-slate-900" id="gineco-atendidos">â€”</p>
+                            <p class="text-slate-500">Urgencia Gineco-Obstétrica · Atendidos</p>
+                            <p class="text-xl font-bold text-slate-900" id="gineco-atendidos">"”</p>
                         </div>
                         <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
-                            <p class="text-slate-500">Urgencia Gineco-ObstÃ©trica Â· Hospitalizados</p>
-                            <p class="text-xl font-bold text-slate-900" id="gineco-hospitalizados">â€”</p>
+                            <p class="text-slate-500">Urgencia Gineco-Obstétrica · Hospitalizados</p>
+                            <p class="text-xl font-bold text-slate-900" id="gineco-hospitalizados">"”</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- 5. % OcupaciÃ³n Total -->
+                <!-- 5. % Ocupación Total -->
                 <div>
-                    <h4 class="text-sm font-bold text-slate-800 mb-3 uppercase tracking-wide">5. % OcupaciÃ³n Total</h4>
+                    <h4 class="text-sm font-bold text-slate-800 mb-3 uppercase tracking-wide">5. % Ocupación Total</h4>
                     <div class="grid grid-cols-2 gap-3 text-xs max-w-md">
                         <div class="p-3 bg-blue-50 rounded-lg border border-blue-200">
-                            <p class="text-blue-700">% OcupaciÃ³n Adultos</p>
-                            <p class="text-2xl font-bold text-blue-900" id="pct-ocupacion-adulto">â€”</p>
+                            <p class="text-blue-700">% Ocupación Adultos</p>
+                            <p class="text-2xl font-bold text-blue-900" id="pct-ocupacion-adulto">"”</p>
                         </div>
                         <div class="p-3 bg-teal-50 rounded-lg border border-teal-200">
-                            <p class="text-teal-700">% OcupaciÃ³n PediatrÃ­a</p>
-                            <p class="text-2xl font-bold text-teal-900" id="pct-ocupacion-pedi">â€”</p>
+                            <p class="text-teal-700">% Ocupación Pediatría</p>
+                            <p class="text-2xl font-bold text-teal-900" id="pct-ocupacion-pedi">"”</p>
                         </div>
                     </div>
                 </div>
@@ -1027,13 +1027,13 @@
                         </div>
                         <div>
                             <h3 class="font-bold text-base text-white">Google Sheet: "SOLICITUDES DE INGRESO CDT"</h3>
-                            <p class="text-xs text-amber-200">Planilla compartida para seguimiento de solicitudes del Centro DiagnÃ³stico</p>
+                            <p class="text-xs text-amber-200">Planilla compartida para seguimiento de solicitudes del Centro Diagnóstico</p>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-wrap items-center gap-2">
                     <button onclick="openModuleSheet('cdt')" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2.5 rounded-lg text-xs transition shadow flex items-center">
-                        <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Abrir Google Sheet en Nueva PestaÃ±a
+                        <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Abrir Google Sheet en Nueva Pestaña
                     </button>
                     <button data-requires-write="true" onclick="configureSheetUrl('cdt', 'Solicitudes CDT')" class="bg-white/10 hover:bg-white/20 text-white font-medium px-3 py-2.5 rounded-lg text-xs transition border border-white/20">
                         <i class="fa-solid fa-gear mr-1.5"></i> Configurar Enlace
@@ -1044,7 +1044,7 @@
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
                 <div>
                     <h2 class="text-lg font-bold text-slate-900">Solicitudes de Ingreso CDT</h2>
-                    <p class="text-xs text-slate-500">Centro de DiagnÃ³stico y Tratamiento - Pacientes en espera de cama Â· Ãšltimos 30 registros</p>
+                    <p class="text-xs text-slate-500">Centro de Diagnóstico y Tratamiento - Pacientes en espera de cama · Últimos 30 registros</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="cargarSolicitudesCDT()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs px-3 py-2 rounded-lg font-medium border border-slate-300">
@@ -1097,7 +1097,7 @@
                 </div>
                 <div class="flex flex-wrap items-center gap-2">
                     <button onclick="openModuleSheet('hec-huap')" class="bg-rose-500 hover:bg-rose-400 text-slate-950 font-bold px-4 py-2.5 rounded-lg text-xs transition shadow flex items-center">
-                        <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Abrir Google Sheet en Nueva PestaÃ±a
+                        <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Abrir Google Sheet en Nueva Pestaña
                     </button>
                     <button data-requires-write="true" onclick="configureSheetUrl('hec-huap', 'Casos HEC y HUAP')" class="bg-white/10 hover:bg-white/20 text-white font-medium px-3 py-2.5 rounded-lg text-xs transition border border-white/20">
                         <i class="fa-solid fa-gear mr-1.5"></i> Configurar Enlace
@@ -1108,7 +1108,7 @@
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
                 <div>
                     <h2 class="text-lg font-bold text-slate-900">Casos HEC y HUAP</h2>
-                    <p class="text-xs text-slate-500">Hospital El Carmen &amp; Hospital de Urgencia Asistencia PÃºblica (Ex Posta Central)</p>
+                    <p class="text-xs text-slate-500">Hospital El Carmen &amp; Hospital de Urgencia Asistencia Pública (Ex Posta Central)</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="cargarCasosHecHuap()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs px-3 py-2 rounded-lg font-medium border border-slate-300">
@@ -1120,7 +1120,7 @@
                 </div>
             </div>
 
-            <!-- Selector de pestaÃ±a estilo Drive: HEC / HUAP -->
+            <!-- Selector de pestaña estilo Drive: HEC / HUAP -->
             <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm space-y-3">
                 <div class="flex items-center justify-between flex-wrap gap-3">
                     <div class="flex bg-slate-100 rounded-lg p-1">
@@ -1172,7 +1172,7 @@
                 </div>
                 <div class="flex flex-wrap items-center gap-2">
                     <button onclick="openModuleSheet('macrorred')" class="bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold px-4 py-2.5 rounded-lg text-xs transition shadow flex items-center">
-                        <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Abrir Google Sheet en Nueva PestaÃ±a
+                        <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Abrir Google Sheet en Nueva Pestaña
                     </button>
                     <button data-requires-write="true" onclick="configureSheetUrl('macrorred', 'Macrorred y Privados')" class="bg-white/10 hover:bg-white/20 text-white font-medium px-3 py-2.5 rounded-lg text-xs transition border border-white/20">
                         <i class="fa-solid fa-gear mr-1.5"></i> Configurar Enlace
@@ -1183,7 +1183,7 @@
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
                 <div>
                     <h2 class="text-lg font-bold text-slate-900">Red de Derivaciones - Macrorred & Extra-sistema</h2>
-                    <p class="text-xs text-slate-500">GestiÃ³n de cupos con otros hospitales pÃºblicos, UGCC Nacional y prestadores privados</p>
+                    <p class="text-xs text-slate-500">Gestión de cupos con otros hospitales públicos, UGCC Nacional y prestadores privados</p>
                 </div>
                 <button onclick="cargarRedDerivaciones()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs px-3 py-2 rounded-lg font-medium border border-slate-300">
                     <i class="fa-solid fa-rotate mr-1"></i> Actualizar
@@ -1224,16 +1224,16 @@
                             <i class="fa-solid fa-file-excel text-sky-400 text-xl"></i>
                         </div>
                         <div>
-                            <h3 class="font-bold text-base text-white">Google Sheet: "DIRECTORIO REFERENTES MÃ‰DICOS ADULTO"</h3>
+                            <h3 class="font-bold text-base text-white">Google Sheet: "DIRECTORIO REFERENTES MÉDICOS ADULTO"</h3>
                             <p class="text-xs text-sky-200">Planilla compartida con datos de contacto y jefaturas de servicio Adulto</p>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-wrap items-center gap-2">
                     <button onclick="openModuleSheet('ref-adulto')" class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-4 py-2.5 rounded-lg text-xs transition shadow flex items-center">
-                        <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Abrir Google Sheet en Nueva PestaÃ±a
+                        <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Abrir Google Sheet en Nueva Pestaña
                     </button>
-                    <button data-requires-write="true" onclick="configureSheetUrl('ref-adulto', 'Referentes MÃ©dicos Adulto')" class="bg-white/10 hover:bg-white/20 text-white font-medium px-3 py-2.5 rounded-lg text-xs transition border border-white/20">
+                    <button data-requires-write="true" onclick="configureSheetUrl('ref-adulto', 'Referentes Médicos Adulto')" class="bg-white/10 hover:bg-white/20 text-white font-medium px-3 py-2.5 rounded-lg text-xs transition border border-white/20">
                         <i class="fa-solid fa-gear mr-1.5"></i> Configurar Enlace
                     </button>
                 </div>
@@ -1241,8 +1241,8 @@
 
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
                 <div>
-                    <h2 class="text-lg font-bold text-slate-900">Directorio Referentes MÃ©dicos Adulto 2026</h2>
-                    <p class="text-xs text-slate-500">Jefaturas de servicio, coordinadores UPC y mÃ©dicos de turno adultos</p>
+                    <h2 class="text-lg font-bold text-slate-900">Directorio Referentes Médicos Adulto 2026</h2>
+                    <p class="text-xs text-slate-500">Jefaturas de servicio, coordinadores UPC y médicos de turno adultos</p>
                 </div>
                 <button onclick="cargarDirectorioAdulto()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs px-3 py-2 rounded-lg font-medium border border-slate-300">
                     <i class="fa-solid fa-rotate mr-1"></i> Actualizar
@@ -1283,16 +1283,16 @@
                             <i class="fa-solid fa-file-excel text-pink-400 text-xl"></i>
                         </div>
                         <div>
-                            <h3 class="font-bold text-base text-white">Google Sheet: "DIRECTORIO REFERENTES PEDIANTRÃA Y GINECOLOGÃA"</h3>
+                            <h3 class="font-bold text-base text-white">Google Sheet: "DIRECTORIO REFERENTES PEDIANTRÁA Y GINECOLOGÁA"</h3>
                             <p class="text-xs text-pink-200">Planilla compartida con datos de contacto infantiles y maternidad</p>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-wrap items-center gap-2">
                     <button onclick="openModuleSheet('ref-pede')" class="bg-pink-500 hover:bg-pink-400 text-slate-950 font-bold px-4 py-2.5 rounded-lg text-xs transition shadow flex items-center">
-                        <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Abrir Google Sheet en Nueva PestaÃ±a
+                        <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Abrir Google Sheet en Nueva Pestaña
                     </button>
-                    <button data-requires-write="true" onclick="configureSheetUrl('ref-pede', 'Referentes PediatrÃ­a y Gine')" class="bg-white/10 hover:bg-white/20 text-white font-medium px-3 py-2.5 rounded-lg text-xs transition border border-white/20">
+                    <button data-requires-write="true" onclick="configureSheetUrl('ref-pede', 'Referentes Pediatría y Gine')" class="bg-white/10 hover:bg-white/20 text-white font-medium px-3 py-2.5 rounded-lg text-xs transition border border-white/20">
                         <i class="fa-solid fa-gear mr-1.5"></i> Configurar Enlace
                     </button>
                 </div>
@@ -1300,8 +1300,8 @@
 
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
                 <div>
-                    <h2 class="text-lg font-bold text-slate-900">Directorio Referentes MÃ©dicos PediatrÃ­a y GinecologÃ­a</h2>
-                    <p class="text-xs text-slate-500">Jefaturas Infantiles, NeonatologÃ­a, Maternidad y UPC PediÃ¡trica</p>
+                    <h2 class="text-lg font-bold text-slate-900">Directorio Referentes Médicos Pediatría y Ginecología</h2>
+                    <p class="text-xs text-slate-500">Jefaturas Infantiles, Neonatología, Maternidad y UPC Pediátrica</p>
                 </div>
                 <button onclick="cargarDirectorioPede()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs px-3 py-2 rounded-lg font-medium border border-slate-300">
                     <i class="fa-solid fa-rotate mr-1"></i> Actualizar
@@ -1337,14 +1337,14 @@
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
                 <div>
                     <h2 class="text-lg font-bold text-slate-900">Dashboard Ejecutivo</h2>
-                    <p class="text-xs text-slate-500">Resumen visual de todos los mÃ³dulos â€” actualmente con datos de ejemplo (no conectado a las planillas reales todavÃ­a)</p>
+                    <p class="text-xs text-slate-500">Resumen visual de todos los módulos "” actualmente con datos de ejemplo (no conectado a las planillas reales todavía)</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="document.getElementById('iframe-dashboard-ejec').src = document.getElementById('iframe-dashboard-ejec').src" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs px-3 py-2 rounded-lg font-medium border border-slate-300">
                         <i class="fa-solid fa-rotate mr-1"></i> Recargar
                     </button>
                     <a href="dashboard-ejecutivo/index.html" target="_blank" class="bg-slate-800 hover:bg-slate-900 text-white text-xs px-4 py-2 rounded-lg font-medium shadow-sm flex items-center">
-                        <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Abrir en PestaÃ±a Nueva
+                        <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Abrir en Pestaña Nueva
                     </a>
                 </div>
             </div>
@@ -1355,14 +1355,14 @@
         </section>
 
         <!-- ========================================== -->
-        <!-- MODULE 11: CONFIGURACIÃ“N DE CELDAS (Admin)  -->
+        <!-- MODULE 11: CONFIGURACIÁ“N DE CELDAS (Admin)  -->
         <!-- ========================================== -->
         <section id="mod-config-celdas" class="module-section hidden space-y-4">
             <div class="bg-rose-50 border border-rose-200 rounded-xl p-4 flex items-start space-x-3">
                 <i class="fa-solid fa-triangle-exclamation text-rose-500 mt-0.5"></i>
                 <div>
-                    <h2 class="text-lg font-bold text-rose-900">ConfiguraciÃ³n de Celdas</h2>
-                    <p class="text-xs text-rose-700">Solo Admin. Corrige aquÃ­ la celda/rango exacto que se lee de cada Google Sheet si la planilla original cambia de estructura (filas/columnas movidas). Los cambios se guardan para <strong>todos los usuarios</strong> de inmediato â€” no hace falta subir nada a GitHub.</p>
+                    <h2 class="text-lg font-bold text-rose-900">Configuración de Celdas</h2>
+                    <p class="text-xs text-rose-700">Solo Admin. Corrige aquí la celda/rango exacto que se lee de cada Google Sheet si la planilla original cambia de estructura (filas/columnas movidas). Los cambios se guardan para <strong>todos los usuarios</strong> de inmediato "” no hace falta subir nada a GitHub.</p>
                 </div>
             </div>
             <div id="lista-config-celdas" class="space-y-6">
@@ -1376,7 +1376,7 @@
 
 
     <!-- ========================================================= -->
-    <!-- MODAL: SOLICITUD DE PABELLÃ“N / SALIDA UPC (DESCARGA PDF)  -->
+    <!-- MODAL: SOLICITUD DE PABELLÁ“N / SALIDA UPC (DESCARGA PDF)  -->
     <!-- ========================================================= -->
     <div id="modal-pabellon" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4 overflow-y-auto">
         <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden">
@@ -1397,8 +1397,8 @@
                 <div class="flex justify-between items-start border-b-2 border-slate-800 pb-4">
                     <div>
                         <h2 class="text-lg font-bold text-slate-900 uppercase">SERVICIO DE SALUD METROPOLITANO</h2>
-                        <h3 class="text-sm font-semibold text-slate-700">SUBDIRECCIÃ“N DE GESTIÃ“N DE CAMAS (UGCC)</h3>
-                        <p class="text-xs text-slate-500">Formulario Oficial Solicitud PabellÃ³n - LiberaciÃ³n Salida UPC</p>
+                        <h3 class="text-sm font-semibold text-slate-700">SUBDIRECCIÁ“N DE GESTIÁ“N DE CAMAS (UGCC)</h3>
+                        <p class="text-xs text-slate-500">Formulario Oficial Solicitud Pabellón - Liberación Salida UPC</p>
                     </div>
                     <div class="text-right text-xs">
                         <p class="font-bold text-slate-900">FECHA: <span id="pab-doc-date">--</span></p>
@@ -1408,8 +1408,8 @@
 
                 <!-- Section: Summary -->
                 <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 text-xs text-amber-900">
-                    <p class="font-semibold"><i class="fa-solid fa-circle-info mr-1"></i> NotificaciÃ³n a CoordinaciÃ³n de Pabellones:</p>
-                    <p>Las siguientes camas han sido marcadas para <strong>Salida UPC / Requerimiento de PabellÃ³n QuirÃºrgico</strong>. Se solicita confirmaciÃ³n de horario de tabla para procedimiento.</p>
+                    <p class="font-semibold"><i class="fa-solid fa-circle-info mr-1"></i> Notificación a Coordinación de Pabellones:</p>
+                    <p>Las siguientes camas han sido marcadas para <strong>Salida UPC / Requerimiento de Pabellón Quirúrgico</strong>. Se solicita confirmación de horario de tabla para procedimiento.</p>
                 </div>
 
                 <!-- Table of requested UPC beds -->
@@ -1420,8 +1420,8 @@
                             <th class="p-2 border-r border-slate-300">Sector UPC</th>
                             <th class="p-2 border-r border-slate-300">Paciente</th>
                             <th class="p-2 border-r border-slate-300">RUT</th>
-                            <th class="p-2 border-r border-slate-300">DiagnÃ³stico / Procedimiento</th>
-                            <th class="p-2">Destino Post-PabellÃ³n</th>
+                            <th class="p-2 border-r border-slate-300">Diagnóstico / Procedimiento</th>
+                            <th class="p-2">Destino Post-Pabellón</th>
                         </tr>
                     </thead>
                     <tbody id="pabellon-doc-rows" class="divide-y divide-slate-200">
@@ -1432,11 +1432,11 @@
                 <!-- Signatures area -->
                 <div class="grid grid-cols-2 gap-8 pt-12 text-center text-xs">
                     <div>
-                        <div class="border-t border-slate-400 pt-2 font-semibold">MÃ©dico Jefe / Enfermero(a) UGCC</div>
-                        <p class="text-slate-500">GestiÃ³n de Camas Hospitalarias</p>
+                        <div class="border-t border-slate-400 pt-2 font-semibold">Médico Jefe / Enfermero(a) UGCC</div>
+                        <p class="text-slate-500">Gestión de Camas Hospitalarias</p>
                     </div>
                     <div>
-                        <div class="border-t border-slate-400 pt-2 font-semibold">CoordinaciÃ³n Central de Pabellones</div>
+                        <div class="border-t border-slate-400 pt-2 font-semibold">Coordinación Central de Pabellones</div>
                         <p class="text-slate-500">Recibido y Confirmado</p>
                     </div>
                 </div>
@@ -1444,7 +1444,7 @@
 
             <!-- Modal Footer Actions -->
             <div class="bg-slate-100 px-6 py-4 flex justify-between items-center no-print border-t border-slate-200">
-                <span class="text-xs text-slate-500">El documento se generarÃ¡ en formato PDF idÃ©ntico al estÃ¡ndar oficial.</span>
+                <span class="text-xs text-slate-500">El documento se generará en formato PDF idéntico al estándar oficial.</span>
                 <div class="flex space-x-3">
                     <button onclick="closePabellonModal()" class="px-4 py-2 text-xs font-semibold text-slate-600 hover:text-slate-800">
                         Cerrar
@@ -1473,7 +1473,7 @@
                     <select id="edit-bed-status" class="w-full border border-slate-300 rounded-lg p-2 focus:ring-brand-500 focus:border-brand-500">
                         <option value="DISPONIBLE">DISPONIBLE</option>
                         <option value="OCUPADA">OCUPADA</option>
-                        <option value="SALIDA_UPC">SALIDA UPC / PABELLÃ“N</option>
+                        <option value="SALIDA_UPC">SALIDA UPC / PABELLÁ“N</option>
                         <option value="BLOQUEADA">BLOQUEADA / FALLA TECNICA</option>
                         <option value="ASEO">EN ASEO / ASEO TERMINAL</option>
                     </select>
@@ -1491,13 +1491,13 @@
                     </div>
                     <div>
                         <label class="block font-medium text-slate-700 mb-1">Edad</label>
-                        <input type="text" id="edit-bed-age" class="w-full border border-slate-300 rounded-lg p-2" placeholder="Ej: 45 aÃ±os">
+                        <input type="text" id="edit-bed-age" class="w-full border border-slate-300 rounded-lg p-2" placeholder="Ej: 45 años">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block font-medium text-slate-700 mb-1">DiagnÃ³stico</label>
-                    <input type="text" id="edit-bed-dx" class="w-full border border-slate-300 rounded-lg p-2" placeholder="DiagnÃ³stico principal">
+                    <label class="block font-medium text-slate-700 mb-1">Diagnóstico</label>
+                    <input type="text" id="edit-bed-dx" class="w-full border border-slate-300 rounded-lg p-2" placeholder="Diagnóstico principal">
                 </div>
 
                 <div class="flex justify-end space-x-2 pt-3 border-t">
@@ -1511,7 +1511,7 @@
     <!-- Nota: Todo el código JavaScript ha sido modularizado. Ver js/ -->
 
     <!-- ========================================================= -->
-    <!-- MÃ“DULOS JAVASCRIPT - Importar en orden -->
+    <!-- MÁ“DULOS JAVASCRIPT - Importar en orden -->
     <!-- ========================================================= -->
     <script defer src="js/config.js"></script>
     <script defer src="js/utils.js"></script>

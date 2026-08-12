@@ -5,7 +5,9 @@
 const SUPABASE_URL = 'https://swfruqbdiaolqiyhtjvm.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_W6ijOURYxrbCYu1s1pkyZw_GPf6pQHD';
 
-const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+    realtime: { enabled: false }
+});
 
 const ADMIN_EMAIL = 'rodrigoguzman.ugp@gmail.com';
 const LEGACY_EMAIL_DOMAIN = '@gestorcamas.local';
